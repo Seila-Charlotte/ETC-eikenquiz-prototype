@@ -723,8 +723,29 @@ for(let i=0;i<levels.length;i++){
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
  }
- const [word,meaning,accepted]=ja[i*2]; questionBank.push({id:`vocab-ja-${level}-00${i+1}`,level,mode:'vocabulary-ja',active:true,prompt:word,accepted,explanation:meaning});
- const [word2,meaning2,accepted2]=ja[i*2+1]; questionBank.push({id:`vocab-ja-${level}-00${i+1}-b`,level,mode:'vocabulary-ja',active:true,prompt:word2,accepted:accepted2,explanation:meaning2});
+ if (i > 0) {
+  const [word,meaning,accepted]=ja[i*2];
+  questionBank.push({
+    id:`vocab-ja-${level}-00${i+1}`,
+    level,
+    mode:'vocabulary-ja',
+    active:true,
+    prompt:word,
+    accepted,
+    explanation:meaning
+  });
+
+  const [word2,meaning2,accepted2]=ja[i*2+1];
+  questionBank.push({
+    id:`vocab-ja-${level}-00${i+1}-b`,
+    level,
+    mode:'vocabulary-ja',
+    active:true,
+    prompt:word2,
+    accepted:accepted2,
+    explanation:meaning2
+  });
+}
  for(let j=0;j<2;j++){
   const r=reading[i*2+j]; questionBank.push({id:`reading-${level}-00${j+1}`,level,mode:'reading',active:true,passage:r[0],prompt:r[1],...rotatedOptions([r[6],r[3],r[4],r[5]],i+j)});
   const c=conversations[i*2+j]; questionBank.push({id:`conversation-${level}-00${j+1}`,level,mode:'conversation',active:true,dialogue:c[0],prompt:c[1],...rotatedOptions([c[6],c[3],c[4],c[5]],i+j+1)});
