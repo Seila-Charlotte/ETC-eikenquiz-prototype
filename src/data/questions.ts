@@ -377,6 +377,325 @@ const grade5VocabMc: Grade5VocabMcQuestion[] = [
     explanation: 'sandwich',
   },
 ];
+type Grade5VocabJaQuestion = {
+  id: string;
+  prompt: string;
+  accepted: string[];
+  partialAnswers?: {
+    answers: string[];
+    credit: number;
+  }[];
+  explanation: string;
+};
+
+const grade5VocabJa: Grade5VocabJaQuestion[] = [
+  {
+    id: 'vocab-ja-5-001',
+    prompt: 'morning',
+    accepted: ['朝', 'あさ', '午前', 'ごぜん'],
+    explanation: 'morning：朝、午前',
+  },
+  {
+    id: 'vocab-ja-5-002',
+    prompt: 'library',
+    accepted: ['図書館', 'としょかん'],
+    explanation: 'library：図書館',
+  },
+  {
+    id: 'vocab-ja-5-003',
+    prompt: 'beautiful',
+    accepted: ['美しい', 'うつくしい', 'きれいな', '綺麗な'],
+    partialAnswers: [
+      { answers: ['きれい', '綺麗'], credit: 0.8 },
+    ],
+    explanation: 'beautiful：美しい、きれいな',
+  },
+  {
+    id: 'vocab-ja-5-004',
+    prompt: 'teacher',
+    accepted: ['先生', '教師', 'せんせい', 'きょうし'],
+    explanation: 'teacher：先生、教師',
+  },
+  {
+    id: 'vocab-ja-5-005',
+    prompt: 'usually',
+    accepted: ['大抵', 'たいてい', '普通は', 'ふつうは', '通常は', 'つうじょうは'],
+    partialAnswers: [
+      { answers: ['普通', 'ふつう', '通常'], credit: 0.7 },
+    ],
+    explanation: 'usually：たいてい、普通は',
+  },
+  {
+    id: 'vocab-ja-5-006',
+    prompt: 'hospital',
+    accepted: ['病院', 'びょういん'],
+    explanation: 'hospital：病院',
+  },
+  {
+    id: 'vocab-ja-5-007',
+    prompt: 'to swim',
+    accepted: ['泳ぐ', 'およぐ'],
+    explanation: 'to swim：泳ぐ',
+  },
+  {
+    id: 'vocab-ja-5-008',
+    prompt: 'window',
+    accepted: ['窓', 'まど'],
+    explanation: 'window：窓',
+  },
+  {
+    id: 'vocab-ja-5-009',
+    prompt: 'hungry',
+    accepted: ['お腹がすいた', 'お腹がすいた', 'おなかがすいた', 'くうふくの', '空腹の', 'くうふくな' '空腹な'],
+    partialAnswers: [ 
+      { answers: ['空腹', 'お腹がすく', 'おなかがすく'], credit: 0.8 },
+    ],
+    explanation: 'hungry：お腹がすいた、空腹の',
+  },
+  {
+    id: 'vocab-ja-5-010',
+    prompt: 'station',
+    accepted: ['駅', 'えき'],
+    explanation: 'station：駅',
+  },
+  {
+    id: 'vocab-ja-5-011',
+    prompt: 'to listen',
+    accepted: ['聞く', '聴く', 'きく'],
+    explanation: 'to listen：聞く、聴く',
+  },
+  {
+    id: 'vocab-ja-5-012',
+    prompt: 'Saturday',
+    accepted: ['土曜日', 'どようび', 'どよう', '土曜'],
+    partialAnswers: [
+      { answers: ['土'], credit: 0.5 },
+    ],
+    explanation: 'Saturday：土曜日',
+  },
+  {
+    id: 'vocab-ja-5-013',
+    prompt: 'family',
+    accepted: ['家族', 'かぞく'],
+    explanation: 'family：家族',
+  },
+  {
+    id: 'vocab-ja-5-014',
+    prompt: 'to study',
+    accepted: ['勉強する', 'べんきょうする', '学ぶ', 'まなぶ'],
+    partialAnswers: [
+      { answers: ['勉強', 'べんきょう', 'がくしゅう', '学習'], credit: 0.7 },
+    ],
+    explanation: 'to study：勉強する、学ぶ',
+  },
+  {
+    id: 'vocab-ja-5-015',
+    prompt: 'summer',
+    accepted: ['夏', 'なつ'],
+    explanation: 'summer：夏',
+  },
+  {
+    id: 'vocab-ja-5-016',
+    prompt: 'difficult',
+    accepted: ['難しい', 'むずかしい'],
+    explanation: 'difficult：難しい',
+  },
+  {
+    id: 'vocab-ja-5-017',
+    prompt: 'breakfast',
+    accepted: ['朝食', '朝ご飯', '朝ごはん', 'あさごはん', 'ちょうしょく'],
+    explanation: 'breakfast：朝食、朝ご飯',
+  },
+  {
+    id: 'vocab-ja-5-018',
+    prompt: 'to speak',
+    accepted: ['話す', 'しゃべる', '喋る', 'はなす'],
+    explanation: 'to speak：話す',
+  },
+  {
+    id: 'vocab-ja-5-019',
+    prompt: 'country',
+    accepted: ['国', 'くに'],
+    explanation: 'country：国',
+  },
+  {
+    id: 'vocab-ja-5-020',
+    prompt: 'sometimes',
+    accepted: ['時々', 'ときどき', 'たまに'],
+    explanation: 'sometimes：時々、たまに',
+  },
+  {
+    id: 'vocab-ja-5-021',
+    prompt: 'homework',
+    accepted: ['宿題', 'しゅくだい'],
+    explanation: 'homework：宿題',
+  },
+  {
+    id: 'vocab-ja-5-022',
+    prompt: 'to open',
+    accepted: ['開ける', '開く', 'ひらく', 'あける'],
+    explanation: 'to open：開ける、開く',
+  },
+  {
+    id: 'vocab-ja-5-023',
+    prompt: 'friend',
+    accepted: ['友達', '友だち', '友人', 'ゆうじん', 'ともだち', 'おともだち', 'お友達', '友', 'お友だち', 'おとも達'],
+    explanation: 'friend：友達、友人',
+  },
+  {
+    id: 'vocab-ja-5-024',
+    prompt: 'Sunday',
+    accepted: ['日曜日', '日曜', 'にちようび', 'にちよう'],
+    partialAnswers: [
+      { answers: ['日'], credit: 0.5 },
+    ],
+    explanation: 'Sunday：日曜日',
+  },
+  {
+    id: 'vocab-ja-5-025',
+    prompt: 'to write',
+    accepted: ['書く', 'かく'],
+    explanation: 'to write：(文字を) 書く',
+  },
+  {
+    id: 'vocab-ja-5-026',
+    prompt: 'school',
+    accepted: ['学校', 'がっこう'],
+    explanation: 'school：学校',
+  },
+  {
+    id: 'vocab-ja-5-027',
+    prompt: 'early',
+    accepted: ['早く', '早い', '早めに', 'はやく', 'はやい', 'はやめに'],
+    partialAnswers: [
+      { answers: ['早め'], credit: 0.8 },
+    ],
+    explanation: 'early：早く、早い',
+  },
+  {
+    id: 'vocab-ja-5-028',
+    prompt: 'mother',
+    accepted: ['母', 'はは', '母親', 'ははおや', '母上', 'ははうえ', '母さん', 'かあさん', 'お母さん', 'おかあさん'],
+    explanation: 'mother：母、お母さん',
+  },
+  {
+    id: 'vocab-ja-5-029',
+    prompt: 'to watch',
+    accepted: ['見る', '観る', 'みる'],
+    explanation: 'to watch：見る、観る',
+  },
+  {
+    id: 'vocab-ja-5-030',
+    prompt: 'afternoon',
+    accepted: ['午後', 'ごご'],
+    explanation: 'afternoon：午後',
+  },
+  {
+    id: 'vocab-ja-5-031',
+    prompt: 'interesting',
+    accepted: ['面白い', 'おもしろい', '興味深い', 'きょうみぶかい'],
+    explanation: 'interesting：面白い、興味深い',
+  },
+  {
+    id: 'vocab-ja-5-032',
+    prompt: 'brother',
+    accepted: ['兄', 'あに', 'お兄ちゃん', 'お兄さん', 'おにいちゃん', '弟', 'おとうと', '兄弟', 'きょうだい'],
+    explanation: 'brother：兄、弟、兄弟',
+  },
+  {
+    id: 'vocab-ja-5-033',
+    prompt: 'to buy',
+    accepted: ['買う', 'かう', '購入する', 'こうにゅうする'],
+    partialAnswers: [
+      { answers: ['買い物する'], credit: 0.8 },
+    ],
+    explanation: 'to buy：買う、購入する',
+  },
+  {
+    id: 'vocab-ja-5-034',
+    prompt: 'weather',
+    accepted: ['天気', 'てんき', '天候', 'てんこう'],
+    explanation: 'weather：天気、天候',
+  },
+  {
+    id: 'vocab-ja-5-035',
+    prompt: 'always',
+    accepted: ['いつも', '常に', 'つねに'],
+    explanation: 'always：いつも、常に',
+  },
+  {
+    id: 'vocab-ja-5-036',
+    prompt: 'classroom',
+    accepted: ['教室', 'きょうしつ'],
+    explanation: 'classroom：教室',
+  },
+  {
+    id: 'vocab-ja-5-037',
+    prompt: 'to help',
+    accepted: ['助ける', 'たすける', '手伝う', 'てつだう'],
+    explanation: 'to help：助ける、手伝う',
+  },
+  {
+    id: 'vocab-ja-5-038',
+    prompt: 'evening',
+    accepted: ['夕方', 'ゆうがた', '晩', 'ばん', '夜', 'よる'],
+    explanation: 'evening：夕方、晩',
+  },
+  {
+    id: 'vocab-ja-5-039',
+    prompt: 'favorite',
+    accepted: ['一番好きな', 'いちばん好きな', 'いちばんすきな', 'お気に入りの', 'おきにいりの'],
+    partialAnswers: [
+      { answers: ['好きな', 'すきな', 'お気に入り', 'おきにいり'], credit: 0.7 },
+    ],
+    explanation: 'favorite：一番好きな、お気に入りの',
+  },
+  {
+    id: 'vocab-ja-5-040',
+    prompt: 'restaurant',
+    accepted: ['レストラン', '飲食店', ],
+    partialAnswers: [
+      { answers: ['食堂'], credit: 0.7 },
+    ],
+    explanation: 'restaurant：レストラン、飲食店',
+  },
+  {
+    id: 'vocab-ja-5-041',
+    prompt: 'to read',
+    accepted: ['読む', 'よむ'],
+    explanation: 'to read：読む',
+  },
+  {
+    id: 'vocab-ja-5-042',
+    prompt: 'birthday',
+    accepted: ['誕生日', 'たんじょうび', '誕じょうび', '誕生び', 'たん生日', '誕じょう日', 'たんじょう日'],
+    explanation: 'birthday：誕生日',
+  },
+  {
+    id: 'vocab-ja-5-043',
+    prompt: 'to close',
+    accepted: ['閉める', '閉じる', 'しめる', 'とじる'],
+    explanation: 'to close：閉める、閉じる',
+  },
+  {
+    id: 'vocab-ja-5-044',
+    prompt: 'next week',
+    accepted: ['来週'],
+    partialAnswers: [
+      { answers: ['次の週', '次週'], credit: 0.8 },
+    ],
+    explanation: 'next week：来週',
+  },
+  {
+    id: 'vocab-ja-5-045',
+    prompt: 'together',
+    accepted: ['一緒に', 'いっしょに'],
+    partialAnswers: [
+      { answers: ['一緒', 'いっしょ'], credit: 0.8 },
+    ],
+    explanation: 'together：一緒に',
+  },
+];
 export const questionBank: Question[] = grade5VocabMc.map(q => ({   ...q,   level: '5',   mode: 'vocabulary-mc',   active: true, }));
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
  const shift=seed%4,rotated=[...items.slice(shift),...items.slice(0,shift)];
