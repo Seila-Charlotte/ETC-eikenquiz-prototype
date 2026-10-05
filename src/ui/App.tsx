@@ -19,7 +19,20 @@ function App(){
  const pickMode=(m:Mode)=>{setMode(m);setScreen('category');};
  function startQuiz(m:Mode){try{const selected=selectGameQuestions(questionBank,m);setMode(m);setItems(selected);setIndex(0);setResponses([]);setFeedback(null);setResult(null);setSaveError('');done.current=false;setScreen('quiz');}catch(e){alert(e instanceof Error&&e.message.startsWith('5/vocabulary-mc')?'英検5級の単語・選択式は、問題入れ替え中です。':'問題データを読み込めませんでした。');console.error(e);}}
  function submit(value:AnswerValue,timedOut=false){if(!gate.current.tryLock()||!current||!mode)return;clearInterval(timer.current);const elapsed=timedOut?CLOCK:Math.min(CLOCK,Date.now()-begun.current);const response=responseFor(current,value,elapsed);const updated=[...responses,response];setResponses(updated);setFeedback(response);next.current=window.setTimeout(()=>{setFeedback(null);if(index+1<items.length){setIndex(index+1);return;}void finish(updated);},1050);}
- async function finish(all:Response[]){if(done.current)return;done.current=true;const total=all.reduce((n,r)=>n+r.points,0),correct=all.filter(r=>r.correct).length,avg=Math.round(all.reduce((n,r)=>n+r.elapsedMs,0)/all.length);const completed:Result={id:crypto.randomUUID(),name:guest,mode:mode!,score:total,correct,avgMs:avg,createdAt:new Date().toISOString(),responses:all};setResult(completed);setDailyRank(null);setScreen('result');try{await saveResult(completed,all);const today=await getToday(mode!);setDailyRank(rankOf(today,completed));}catch(e){console.error(e);setSaveError('ランキングに記録できませんでした。係の人に声をかけてください。');} }
+ async function finish(all:Response[]){if(done.current)return;done.current=true;const total=all.reduce((n,r)=>n+r.points,0),correct=all.filter(r=>r.correct).length,avg=Math.round(all.reduce((n,r)=>n+r.elapsedMs,0)/all.length);const completed: Result = {
+  id: crypto.randomUUID(),
+  name: playType === 'team' ? teamName : guest,
+  playType: playType!,
+  members: playType === 'team'
+    ? members.filter(m => m.trim())
+    : undefined,
+  mode: mode!,
+  score: total,
+  correct,
+  avgMs: avg,
+  createdAt: new Date().toISOString(),
+  responses: all
+};setResult(completed);setDailyRank(null);setScreen('result');try{await saveResult(completed,all);const today=await getToday(mode!);setDailyRank(rankOf(today,completed));}catch(e){console.error(e);setSaveError('ランキングに記録できませんでした。係の人に声をかけてください。');} }
  async function showBoard(m=mode||'vocabulary-mc'){setBoardMode(m);setScreen('leaderboard');setLoadingBoard(true);try{setBoard(await getToday(m));}catch(e){console.error(e);setBoard([]);setSaveError('ランキングを読み込めませんでした。');}finally{setLoadingBoard(false);}}
  const modeSummary=(m:Mode)=>m==='vocabulary-mc'?'英検でよく出る単語・熟語にチャレンジ！':m==='reading'?'英文を読んで、内容について答えよう。':'会話の流れに合う返答を選ぼう。';
   function submitEnabled(){if(answer===null)return;submit(answer);}
