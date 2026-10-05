@@ -51,7 +51,16 @@ const conversations:Dialogue[]=[
 ['A: Some residents want the statue removed, while others argue it should remain.','B: ( ____ )','Perhaps a public exhibit could explain the history and the competing views.','The statue was made from local stone.','I visited the exhibit after school.','Residents receive their bills by mail.','Perhaps a public exhibit could explain the history and the competing views.'],
 ['A: The second trial did not reproduce the first result.','B: ( ____ )','That gives us a reason to examine which conditions may have affected it.','The laboratory is beside the main library.','I repeated the instructions to the group.','The first report appeared in a journal.','That gives us a reason to examine which conditions may have affected it.'],
 ];
-const grade5VocabMc = [
+
+type Grade5VocabMcQuestion = {
+  id: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
+
+const grade5VocabMc: Grade5VocabMcQuestion[] = [
   {
     id: 'vocab-mc-5-001',
     prompt: 'A: What do you want to drink?\nB: I want some ( ____ ), please.',
