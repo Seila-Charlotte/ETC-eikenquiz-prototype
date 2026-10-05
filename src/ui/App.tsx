@@ -46,7 +46,7 @@ function App(){
     <div className="section-heading">
       <div className="eyebrow centered">PLAY STYLE</div>
       <h2>遊び方を選んでください</h2>
-      <p>1人でも、みんなでも挑戦できるよ！</p>
+    
     </div>
 
     <div className="mode-grid">
@@ -60,7 +60,7 @@ function App(){
         <span className="mode-icon">👤</span>
         <span className="mode-card-title">1人モード</span>
         <span className="mode-card-desc">
-          1人で挑戦！自分の力で正解を目指そう！
+          1人で挑戦
         </span>
         <span className="mode-card-arrow">
           <ArrowRight size={19}/>
@@ -77,7 +77,7 @@ function App(){
         <span className="mode-icon">👥</span>
         <span className="mode-card-title">チームモード</span>
         <span className="mode-card-desc">
-          みんなで協力！チームで相談して正解を目指そう！
+          チームで協力
         </span>
         <span className="mode-card-arrow">
           <ArrowRight size={19}/>
