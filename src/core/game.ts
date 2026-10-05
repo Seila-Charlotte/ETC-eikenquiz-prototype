@@ -29,10 +29,55 @@ export function scoreAnswer(
 export function normalizeJapanese(value:string):string {
   return value.normalize('NFKC').toLocaleLowerCase('ja-JP').trim().replace(/[\s　]+/g,'').replace(/[。、，,.!！?？「」『』:：;；]/g,'');
 }
+export function answerCredit(
+  question: Question,
+  answer: AnswerValue
+): number {
+  if (answer === null) return 0;
+
+  if (question.mode !== 'vocabulary-ja') {
+    return answer === question.answer ? 1 : 0;
+  }
+
+  const normalized = normalizeJapanese(String(answer));
+
+  if (
+    question.accepted.some(
+      a => normalizeJapanese(a) === normalized
+    )
+  ) {
+    return 1;
+  }
+
+  for (const partial of question.partialAnswers ?? []) {
+    if (
+      partial.answers.some(
+        a => normalizeJapanese(a) === normalized
+      )
+    ) {
+      return Math.max(0, Math.min(1, partial.credit));
+    }
+  }
+
+  return 0;
+}
 export function checkAnswer(question:Question,answer:AnswerValue):boolean {
   if(answer===null) return false;
   return question.mode==='vocabulary-ja' ? question.accepted.some(a=>normalizeJapanese(a)===normalizeJapanese(String(answer))) : answer===question.answer;
 }
+export function answerCredit(
+  question: Question,
+  answer: AnswerValue
+): number {
+  if (answer === null) return 0;
+
+  if (question.mode !== 'vocabulary-ja') {
+    return answer === question.answer ? 1 : 0;
+  }
+
+  const normalized = normalizeJapanese(String(answer));
+
+  
 export function selectGameQuestions(bank:Question[],mode:Mode,random=Math.random):Question[] {
   const chosen:Question[]=[];
   for(const level of LEVELS){
@@ -43,9 +88,21 @@ export function selectGameQuestions(bank:Question[],mode:Mode,random=Math.random
   }
   return chosen;
 }
-export function responseFor(q:Question,answer:AnswerValue,elapsedMs:number):Response {
-  const correct=checkAnswer(q,answer);
-  return {questionId:q.id,answer,correct,elapsedMs,points:scoreAnswer(q.level,correct,elapsedMs)};
+export function responseFor(
+  q: Question,
+  answer: AnswerValue,
+  elapsedMs: number
+): Response {
+  const credit = answerCredit(q, answer);
+  const correct = credit === 1;
+
+  return {
+    questionId: q.id,
+    answer,
+    correct,
+    elapsedMs,
+    points: scoreAnswer(q.level, credit, elapsedMs),
+  };
 }
 export function rankResults<T extends {score:number;correct:number;avgMs:number}>(results:T[]):T[] {
   return [...results].sort((a,b)=>b.score-a.score||b.correct-a.correct||a.avgMs-b.avgMs);
