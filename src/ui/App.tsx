@@ -41,6 +41,51 @@ function App(){
   function submitEnabled(){if(answer===null)return;submit(answer);}
  return <div className="app-shell"><header className="topbar"><button className="brand" onClick={()=>setScreen('home')}><span className="brand-icon"><Sparkles size={20}/></span><span>ことば<span className="brand-pop">クエスト</span></span></button><div className="top-right"><button className="mini-link" onClick={()=>void showBoard(boardMode)}><Trophy size={17}/> ランキング</button></div></header>
  <main className="main-content">
+   {screen === 'play-type' && (
+  <section className="section-screen">
+    <div className="section-heading">
+      <div className="eyebrow centered">PLAY STYLE</div>
+      <h2>遊び方を選んでください</h2>
+      <p>1人でも、みんなでも挑戦できるよ！</p>
+    </div>
+
+    <div className="mode-grid">
+      <button
+        className="mode-card sky"
+        onClick={() => {
+          setPlayType('individual');
+          setScreen('home');
+        }}
+      >
+        <span className="mode-icon">👤</span>
+        <span className="mode-card-title">1人モード</span>
+        <span className="mode-card-desc">
+          1人で挑戦！自分の力で正解を目指そう！
+        </span>
+        <span className="mode-card-arrow">
+          <ArrowRight size={19}/>
+        </span>
+      </button>
+
+      <button
+        className="mode-card lavender"
+        onClick={() => {
+          setPlayType('team');
+          setScreen('home');
+        }}
+      >
+        <span className="mode-icon">👥</span>
+        <span className="mode-card-title">チームモード</span>
+        <span className="mode-card-desc">
+          みんなで協力！チームで相談して正解を目指そう！
+        </span>
+        <span className="mode-card-arrow">
+          <ArrowRight size={19}/>
+        </span>
+      </button>
+    </div>
+  </section>
+)}
  {screen==='home'&&<section className="hero home-card"><div className="hero-left"><div className="eyebrow"><span>英語クイズ</span><i/></div><h1>英語クイズに<br/><span>参加しよう</span></h1><p className="hero-description">英検5級から1級までの問題に挑戦できます。</p><div className="name-field"><label htmlFor="guest">参加者名</label><div className="input-wrap"><span>✦</span><input id="guest" value={guest} onChange={e=>setGuest(cleanName(e.target.value))} maxLength={16} placeholder="名前を入力してね" onKeyDown={e=>e.key==='Enter'&&guest.trim()&&setScreen('category')}/><small>{guest.length}/16</small></div></div><button className="primary-button start-button" disabled={!guest.trim()} onClick={()=>setScreen('category')}>スタート <ArrowRight size={20}/></button><div className="privacy-note">ゲスト参加 · 登録なしですぐ遊べるよ</div></div><div className="hero-art"><div className="sunburst"/><div className="floating f-star">✦</div><div className="floating f-plus">✚</div><div className="floating f-dot">✦</div><div className="book-stack"><div className="book book-back"><span>ABC</span></div><div className="book book-mid"><span>WORDS</span></div><div className="book book-front"><span className="book-star">✦</span><strong>ENGLISH</strong></div><div className="pencil"/></div></div><div className="hero-bottom"><span>● 7つのレベル</span><span>● 14問チャレンジ</span><span>● 1問ずつランダム出題</span></div></section>}
  {screen==='category'&&<section className="section-screen"><button className="back-link" onClick={()=>setScreen('home')}><ArrowLeft size={17}/> もどる</button><div className="section-heading"><div className="eyebrow centered">モード選択</div><h2>モードを選んでください</h2><p>好きなジャンルを選んでね。全14問にチャレンジ！</p></div><div className="mode-grid">{(['vocabulary-mc','reading','conversation'] as Mode[]).map((m,i)=>{const Icon=ICONS[i===0?0:i+1];const colors=['coral','sky','lavender'];return <button key={m} className={`mode-card ${colors[i]}`} onClick={()=>m==='vocabulary-mc'?pickMode(m):startQuiz(m)}><span className="mode-icon"><Icon size={26}/></span><span className="mode-card-title">{m==='vocabulary-mc'?'単語':MODE_LABEL[m]}</span><span className="mode-card-desc">{modeSummary(m)}</span><span className="mode-card-arrow"><ArrowRight size={19}/></span>{m==='vocabulary-mc'&&<span className="tiny-label">単語</span>}</button>})}</div><div className="category-footer"><span className="spark-dot">✦</span> どのモードも、英検5級から1級まで各2問ずつ出題されるよ！</div></section>}
  {screen==='category'&&(mode==='vocabulary-mc'||mode==='vocabulary-ja')&&<div className="submode-overlay"><div className="submode-modal"><button className="modal-close" onClick={()=>setMode(null)}><X size={20}/></button><span className="modal-icon"><Languages size={26}/></span><h3>単語</h3><p>どちらの遊び方にする？</p><div className="submode-options"><button onClick={()=>startQuiz('vocabulary-mc')}><b>選択式</b><small>4つの選択肢から答えよう</small><ArrowRight size={18}/></button><button onClick={()=>startQuiz('vocabulary-ja')}><b>日本語訳</b><small>意味を入力して答えよう</small><ArrowRight size={18}/></button></div></div></div>}
