@@ -17,6 +17,12 @@ The game works locally without a backend, using browser storage for preview. Bef
 
 The publishable key is intended for browser apps; database writes go through the score-validating RPC, and direct table writes are disabled. Results are timestamped by the database and filtered using Japan Standard Time.
 
+## Publish with GitHub Pages
+
+The `Deploy to GitHub Pages` workflow builds this Vite app whenever `main` is updated. In the repository's **Settings → Pages**, choose **GitHub Actions** as the build and deployment source. In **Settings → Secrets and variables → Actions → Variables**, add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` so the deployed build can use the shared leaderboard. These are browser-facing Supabase settings; do not add a service-role key.
+
+The workflow publishes the site at `https://seila-charlotte.github.io/ETC-eikenquiz-prototype/`. GitHub Pages sites are public. With GitHub Free, the repository must also be public; eligible paid plans can publish a public site from a private repository.
+
 ## Question bank checks
 
 `pnpm validate:seed` requires at least two active questions in each level/mode pool, except the intentionally empty Grade 5 vocabulary multiple-choice pool reserved for its finalized replacements. `pnpm validate:full` checks the eventual target of exactly 45 active questions in every pool.
