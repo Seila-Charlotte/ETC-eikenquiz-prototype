@@ -11,11 +11,20 @@ export const SCORING:Record<Level,{base:number;maxSpeedBonus:number}> = {
   '5':{base:100,maxSpeedBonus:45},'4':{base:130,maxSpeedBonus:50},'3':{base:165,maxSpeedBonus:55},
   pre2:{base:210,maxSpeedBonus:60},'2':{base:260,maxSpeedBonus:65},pre1:{base:320,maxSpeedBonus:70},'1':{base:390,maxSpeedBonus:75}
 };
-export function scoreAnswer(level:Level,correct:boolean,elapsedMs:number,limitMs=120_000):number {
-  if(!correct) return 0;
-  const {base,maxSpeedBonus}=SCORING[level];
-  const speed=Math.max(0,Math.min(1,1-elapsedMs/limitMs));
-  return base+Math.round(maxSpeedBonus*speed);
+export function scoreAnswer(
+  level: Level,
+  credit: number,
+  elapsedMs: number,
+  limitMs = 120_000
+): number {
+  if (credit <= 0) return 0;
+
+  const { base, maxSpeedBonus } = SCORING[level];
+  const speed = Math.max(0, Math.min(1, 1 - elapsedMs / limitMs));
+
+  const fullScore = base + Math.round(maxSpeedBonus * speed);
+
+  return Math.round(fullScore * credit);
 }
 export function normalizeJapanese(value:string):string {
   return value.normalize('NFKC').toLocaleLowerCase('ja-JP').trim().replace(/[\s　]+/g,'').replace(/[。、，,.!！?？「」『』:：;；]/g,'');
