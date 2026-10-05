@@ -3,7 +3,16 @@ export type Level = typeof LEVELS[number];
 export type Mode = 'vocabulary-mc'|'vocabulary-ja'|'reading'|'conversation';
 export type QuestionBase = { id:string; level:Level; mode:Mode; active:boolean };
 export type ChoiceQuestion = QuestionBase & { mode:'vocabulary-mc'|'reading'|'conversation'; prompt:string; passage?:string; dialogue?:string; choices:[string,string,string,string]; answer:number; explanation?:string };
-export type JapaneseQuestion = QuestionBase & { mode:'vocabulary-ja'; prompt:string; accepted:string[]; explanation?:string };
+export type JapaneseQuestion = QuestionBase & {
+  mode: 'vocabulary-ja';
+  prompt: string;
+  accepted: string[];
+  partialAnswers?: {
+    answers: string[];
+    credit: number;
+  }[];
+  explanation?: string;
+};
 export type Question = ChoiceQuestion|JapaneseQuestion;
 export type AnswerValue = number|string|null;
 export type Response = { questionId:string; answer:AnswerValue; correct:boolean; elapsedMs:number; points:number };
