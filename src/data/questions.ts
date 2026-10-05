@@ -696,7 +696,21 @@ const grade5VocabJa: Grade5VocabJaQuestion[] = [
     explanation: 'together：一緒に',
   },
 ];
-export const questionBank: Question[] = grade5VocabMc.map(q => ({   ...q,   level: '5',   mode: 'vocabulary-mc',   active: true, }));
+export const questionBank: Question[] = [
+  ...grade5VocabMc.map(q => ({
+    ...q,
+    level: '5' as const,
+    mode: 'vocabulary-mc' as const,
+    active: true,
+  })),
+
+  ...grade5VocabJa.map(q => ({
+    ...q,
+    level: '5' as const,
+    mode: 'vocabulary-ja' as const,
+    active: true,
+  })),
+];
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
  const shift=seed%4,rotated=[...items.slice(shift),...items.slice(0,shift)];
  return {choices:rotated as [string,string,string,string],answer:(4-shift)%4};
