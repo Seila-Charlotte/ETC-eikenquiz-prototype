@@ -61,21 +61,13 @@ export function answerCredit(
 
   return 0;
 }
-export function checkAnswer(question:Question,answer:AnswerValue):boolean {
-  if(answer===null) return false;
-  return question.mode==='vocabulary-ja' ? question.accepted.some(a=>normalizeJapanese(a)===normalizeJapanese(String(answer))) : answer===question.answer;
-}
-export function answerCredit(
+export function checkAnswer(
   question: Question,
   answer: AnswerValue
-): number {
-  if (answer === null) return 0;
+): boolean {
+  return answerCredit(question, answer) === 1;
+}
 
-  if (question.mode !== 'vocabulary-ja') {
-    return answer === question.answer ? 1 : 0;
-  }
-
-  const normalized = normalizeJapanese(String(answer));
 
   
 export function selectGameQuestions(bank:Question[],mode:Mode,random=Math.random):Question[] {
