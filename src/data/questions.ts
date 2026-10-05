@@ -446,7 +446,7 @@ const grade5VocabJa: Grade5VocabJaQuestion[] = [
   {
     id: 'vocab-ja-5-009',
     prompt: 'hungry',
-    accepted: ['お腹がすいた', 'お腹がすいた', 'おなかがすいた', 'くうふくの', '空腹の', 'くうふくな', '空腹な'],
+    accepted: ['お腹がすいた', 'お腹が空いた','おなかが空いた', 'おなかがすいた', 'くうふくの', '空腹の', 'くうふくな', '空腹な'],
     partialAnswers: [ 
       { answers: ['空腹', 'お腹がすく', 'おなかがすく'], credit: 0.8 },
     ],
