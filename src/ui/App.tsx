@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3, Crown, Gamepad2, Globe2, Languages, Medal, RotateCcw, Sparkles, Trophy, X } from 'lucide-react';
 import { normalizeJapanese, rankOf, responseFor, selectGameQuestions, SubmissionGate } from '../core/game';
-import { LEVEL_LABEL, MODE_LABEL, type AnswerValue, type Level, type Mode, type Question, type Response, type Result } from '../core/types';
+import { LEVEL_LABEL, MODE_LABEL, type AnswerValue, type Level, type Mode, type PlayType, type Question, type Response, type Result } from '../core/types';
 import { getToday, saveResult } from '../core/leaderboard';
 import { questionBank } from '../data/questions';
 
-type Screen='home'|'category'|'quiz'|'result'|'leaderboard';
+type Screen='play-type'|'home'|'category'|'quiz'|'result'|'leaderboard';
 const MODES:Mode[]=['vocabulary-mc','vocabulary-ja','reading','conversation'];
 const ICONS=[BookOpen,Languages,Globe2,Gamepad2];
 const CLOCK=120_000;
 function cleanName(value:string){return value.replace(/[<>\u0000-\u001f]/g,'').replace(/\s+/g,' ').trim().slice(0,16);}
 function App(){
+  const [playType, setPlayType] = useState<PlayType | null>(null);
+ const [teamName, setTeamName] = useState('');
+ const [members, setMembers] = useState<string[]>(['', '']);
  const [screen,setScreen]=useState<Screen>('home'),[guest,setGuest]=useState(''),[mode,setMode]=useState<Mode|null>(null),[items,setItems]=useState<Question[]>([]),[index,setIndex]=useState(0),[responses,setResponses]=useState<Response[]>([]),[answer,setAnswer]=useState<AnswerValue>(null),[remaining,setRemaining]=useState(120),[feedback,setFeedback]=useState<Response|null>(null),[result,setResult]=useState<Result|null>(null),[dailyRank,setDailyRank]=useState<number|null>(null),[board,setBoard]=useState<Result[]>([]),[boardMode,setBoardMode]=useState<Mode>('vocabulary-mc'),[loadingBoard,setLoadingBoard]=useState(false),[saveError,setSaveError]=useState('');
  const begun=useRef(0),gate=useRef(new SubmissionGate()),done=useRef(false),timer=useRef<number|undefined>(undefined),next=useRef<number|undefined>(undefined),answerInput=useRef<HTMLInputElement>(null);
  const current=items[index],score=responses.reduce((a,r)=>a+r.points,0);
