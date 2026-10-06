@@ -58,7 +58,16 @@ function App(){
         }}
       >
         <span className="mode-icon">👤</span>
-        <button
+<span className="mode-card-title">1人モード</span>
+<span className="mode-card-desc">
+  1人で挑戦
+</span>
+<span className="mode-card-arrow">
+  <ArrowRight size={19}/>
+</span>
+</button>
+
+<button
   className="mode-card lavender"
   onClick={() => {
     setPlayType('team');
