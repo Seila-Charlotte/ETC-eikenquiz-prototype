@@ -31,3 +31,4 @@ export type Result = {
 };
 export const LEVEL_LABEL:Record<Level,string> = { '5':'英検5級','4':'英検4級','3':'英検3級','pre2':'英検準2級','2':'英検2級','pre1':'英検準1級','1':'英検1級' };
 export const MODE_LABEL:Record<Mode,string> = {'vocabulary-mc':'単語・選択式','vocabulary-ja':'単語・日本語訳',reading:'読解',conversation:'会話'};
+
