@@ -153,13 +153,15 @@ function App(){
             </div>
           ))}
 
-          <button
-            type="button"
-            className="secondary-button"
-            onClick={() => setMembers([...members, ''])}
-          >
-            ＋ メンバーを追加
-          </button>
+          {members.length < 4 && (
+  <button
+    type="button"
+    className="secondary-button"
+    onClick={() => setMembers([...members, ''])}
+  >
+    ＋ メンバーを追加
+  </button>
+)}
         </div>
       )}
 
