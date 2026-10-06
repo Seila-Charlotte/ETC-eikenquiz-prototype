@@ -8,7 +8,7 @@ import { questionBank } from '../data/questions';
 type Screen='play-type'|'home'|'category'|'quiz'|'result'|'leaderboard';
 const MODES:Mode[]=['vocabulary-mc','vocabulary-ja','reading','conversation'];
 const ICONS=[BookOpen,Languages,Globe2,Gamepad2];
-const CLOCK=120_000;
+const getClock = (mode: Mode | null) =>   mode === 'reading' ? 300_000 : 120_000;
 function cleanName(value:string){return value.replace(/[<>\u0000-\u001f]/g,'').replace(/\s+/g,' ').trim().slice(0,16);}
 function App(){
   const [playType, setPlayType] = useState<PlayType | null>(null);
@@ -17,11 +17,11 @@ function App(){
  const [screen,setScreen]=useState<Screen>('play-type'),[guest,setGuest]=useState(''),[mode,setMode]=useState<Mode|null>(null),[items,setItems]=useState<Question[]>([]),[index,setIndex]=useState(0),[responses,setResponses]=useState<Response[]>([]),[answer,setAnswer]=useState<AnswerValue>(null),[remaining,setRemaining]=useState(120),[feedback,setFeedback]=useState<Response|null>(null),[result,setResult]=useState<Result|null>(null),[dailyRank,setDailyRank]=useState<number|null>(null),[board,setBoard]=useState<Result[]>([]),[boardMode,setBoardMode]=useState<Mode>('vocabulary-mc'),[loadingBoard,setLoadingBoard]=useState(false),[saveError,setSaveError]=useState('');
  const begun=useRef(0),gate=useRef(new SubmissionGate()),done=useRef(false),timer=useRef<number|undefined>(undefined),next=useRef<number|undefined>(undefined),answerInput=useRef<HTMLInputElement>(null);
  const current=items[index],score=responses.reduce((a,r)=>a+r.points,0);
- useEffect(()=>{if(screen!=='quiz'||feedback)return;setRemaining(120);begun.current=Date.now();gate.current.reset();setAnswer(null);timer.current=window.setInterval(()=>{const left=Math.max(0,CLOCK-(Date.now()-begun.current));setRemaining(Math.ceil(left/1000));if(left<=0){clearInterval(timer.current);submit(null,true);}},200);return()=>clearInterval(timer.current);},[screen,index]);
+ useEffect(()=>{   if(screen!=='quiz'||feedback)return;    const clock = getClock(mode);    setRemaining(clock / 1000);   begun.current=Date.now();   gate.current.reset();   setAnswer(null);    timer.current=window.setInterval(()=>{     const left=Math.max(0,clock-(Date.now()-begun.current));     setRemaining(Math.ceil(left/1000));      if(left<=0){       clearInterval(timer.current);       submit(null,true);     }   },200);    return()=>clearInterval(timer.current); },[screen,index]);
  useEffect(()=>()=>{clearInterval(timer.current);clearTimeout(next.current);},[]);
  const pickMode=(m:Mode)=>{setMode(m);setScreen('category');};
  function startQuiz(m:Mode){try{const selected=selectGameQuestions(questionBank,m);setMode(m);setItems(selected);setIndex(0);setResponses([]);setFeedback(null);setResult(null);setSaveError('');done.current=false;setScreen('quiz');}catch(e){alert(e instanceof Error&&e.message.startsWith('5/vocabulary-mc')?'英検5級の単語・選択式は、問題入れ替え中です。':'問題データを読み込めませんでした。');console.error(e);}}
- function submit(value:AnswerValue,timedOut=false){if(!gate.current.tryLock()||!current||!mode)return;clearInterval(timer.current);const elapsed=timedOut?CLOCK:Math.min(CLOCK,Date.now()-begun.current);const response=responseFor(current,value,elapsed);const updated=[...responses,response];setResponses(updated);setFeedback(response);next.current=window.setTimeout(()=>{setFeedback(null);if(index+1<items.length){setIndex(index+1);return;}void finish(updated);},1050);}
+ function submit(value:AnswerValue,timedOut=false){if(!gate.current.tryLock()||!current||!mode)return;clearInterval(timer.current);const clock = getClock(mode); const elapsed=timedOut ? clock : Math.min(clock,Date.now()-begun.current);const response=responseFor(current,value,elapsed);const updated=[...responses,response];setResponses(updated);setFeedback(response);next.current=window.setTimeout(()=>{setFeedback(null);if(index+1<items.length){setIndex(index+1);return;}void finish(updated);},1050);}
  async function finish(all:Response[]){if(done.current)return;done.current=true;const total=all.reduce((n,r)=>n+r.points,0),correct=all.filter(r=>r.correct).length,avg=Math.round(all.reduce((n,r)=>n+r.elapsedMs,0)/all.length);const completed: Result = {
   id: crypto.randomUUID(),
   name: playType === 'team' ? teamName : guest,
