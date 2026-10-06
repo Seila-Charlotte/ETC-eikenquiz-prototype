@@ -1438,6 +1438,331 @@ const grade5Reading: Grade5ReadingQuestion[] = [
     explanation: '家族の朝食を作るために早く起きています。',
   },
 ];
+type Grade4VocabMcQuestion = {
+  id: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
+
+const grade4VocabMc: Grade4VocabMcQuestion[] = [
+  {
+    id: 'vocab-mc-4-001',
+    prompt: 'A: Where is your father?\nB: He is making dinner in the ( ____ ).',
+    choices: ['kitchen', 'station', 'garden', 'library'],
+    answer: 0,
+    explanation: 'kitchen：台所。夕食を作っている場所なので kitchen が正解です。',
+  },
+  {
+    id: 'vocab-mc-4-002',
+    prompt: 'Please ( ____ ) your name and phone number on this paper.',
+    choices: ['sing', 'write', 'wash', 'open'],
+    answer: 1,
+    explanation: 'write：書く。「この紙に名前と電話番号を書いてください」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-003',
+    prompt: 'It was very hot, so Lisa opened the ( ____ ).',
+    choices: ['picture', 'floor', 'window', 'question'],
+    answer: 2,
+    explanation: 'window：窓。暑かったので窓を開けた、という文です。',
+  },
+  {
+    id: 'vocab-mc-4-004',
+    prompt: 'My uncle works at a restaurant. He is a ( ____ ).',
+    choices: ['student', 'farmer', 'doctor', 'cook'],
+    answer: 3,
+    explanation: 'cook：料理人。レストランで働いているという文脈に合います。',
+  },
+  {
+    id: 'vocab-mc-4-005',
+    prompt: 'A: How was the movie?\nB: It was very ( ____ ). I want to see it again.',
+    choices: ['interesting', 'thirsty', 'cloudy', 'early'],
+    answer: 0,
+    explanation: 'interesting：おもしろい。もう一度見たいと言っているので自然です。',
+  },
+  {
+    id: 'vocab-mc-4-006',
+    prompt: 'My sister and I ( ____ ) the same bedroom.',
+    choices: ['invite', 'share', 'answer', 'visit'],
+    answer: 1,
+    explanation: 'share：共有する。「姉妹で同じ寝室を使っている」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-007',
+    prompt: 'Ken was tired, so he went to bed ( ____ ) last night.',
+    choices: ['again', 'outside', 'early', 'together'],
+    answer: 2,
+    explanation: 'early：早く。疲れていたので早く寝た、という流れです。',
+  },
+  {
+    id: 'vocab-mc-4-008',
+    prompt: 'A: Excuse me. How can I get to the museum?\nB: Go ( ____ ) and turn left at the bank.',
+    choices: ['often', 'soon', 'really', 'straight'],
+    answer: 3,
+    explanation: 'straight：まっすぐに。go straight で「まっすぐ行く」です。',
+  },
+  {
+    id: 'vocab-mc-4-009',
+    prompt: 'Emma wants to be a ( ____ ) because she loves animals.',
+    choices: ['vet', 'pilot', 'singer', 'driver'],
+    answer: 0,
+    explanation: 'vet：獣医。動物が大好きなので獣医になりたい、という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-010',
+    prompt: 'A: When will the train ( ____ )?\nB: At 10:15.',
+    choices: ['practice', 'arrive', 'remember', 'borrow'],
+    answer: 1,
+    explanation: 'arrive：到着する。電車が何時に到着するか聞いています。',
+  },
+  {
+    id: 'vocab-mc-4-011',
+    prompt: 'It is raining outside. Don’t forget your ( ____ ).',
+    choices: ['camera', 'dictionary', 'umbrella', 'ticket'],
+    answer: 2,
+    explanation: 'umbrella：傘。雨が降っているので傘を忘れないように、という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-012',
+    prompt: 'My grandmother lives in a small ( ____ ) near the mountains.',
+    choices: ['language', 'season', 'subject', 'village'],
+    answer: 3,
+    explanation: 'village：村。「山の近くの小さな村に住んでいる」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-013',
+    prompt: 'A: Can I ( ____ ) your dictionary?\nB: Sure. Here you are.',
+    choices: ['borrow', 'teach', 'send', 'build'],
+    answer: 0,
+    explanation: 'borrow：借りる。辞書を借りてもいいか尋ねています。',
+  },
+  {
+    id: 'vocab-mc-4-014',
+    prompt: 'We have a math test tomorrow, so I have to ( ____ ) tonight.',
+    choices: ['travel', 'study', 'invite', 'carry'],
+    answer: 1,
+    explanation: 'study：勉強する。明日テストがあるので今夜勉強する、という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-015',
+    prompt: 'This box is very ( ____ ). Can you help me carry it?',
+    choices: ['famous', 'kind', 'heavy', 'quiet'],
+    answer: 2,
+    explanation: 'heavy：重い。運ぶのを手伝ってほしいので heavy が自然です。',
+  },
+  {
+    id: 'vocab-mc-4-016',
+    prompt: 'A: What did you do yesterday?\nB: I ( ____ ) my grandparents.',
+    choices: ['stayed', 'waited', 'showed', 'visited'],
+    answer: 3,
+    explanation: 'visited：訪ねた。visit my grandparents で「祖父母を訪ねる」です。',
+  },
+  {
+    id: 'vocab-mc-4-017',
+    prompt: 'My brother is sick today. He has a bad ( ____ ).',
+    choices: ['headache', 'holiday', 'question', 'festival'],
+    answer: 0,
+    explanation: 'headache：頭痛。be sick と一緒に使える体調に関する語です。',
+  },
+  {
+    id: 'vocab-mc-4-018',
+    prompt: 'A: What are you looking for?\nB: My keys. I can’t ( ____ ) them.',
+    choices: ['hear', 'find', 'learn', 'meet'],
+    answer: 1,
+    explanation: 'find：見つける。「鍵を見つけられない」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-019',
+    prompt: 'The students are practicing for the school music ( ____ ).',
+    choices: ['hospital', 'country', 'festival', 'breakfast'],
+    answer: 2,
+    explanation: 'festival：祭り・行事。school music festival で「学校の音楽祭」です。',
+  },
+  {
+    id: 'vocab-mc-4-020',
+    prompt: 'A: Is your new school far from your house?\nB: No. It is very ( ____ ).',
+    choices: ['expensive', 'difficult', 'famous', 'near'],
+    answer: 3,
+    explanation: 'near：近い。far「遠い」と反対の意味です。',
+  },
+  {
+    id: 'vocab-mc-4-021',
+    prompt: 'Please ( ____ ) the door when you leave the room.',
+    choices: ['close', 'cook', 'climb', 'call'],
+    answer: 0,
+    explanation: 'close：閉める。部屋を出るときにドアを閉める、という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-022',
+    prompt: 'A: What did your mother give you for your birthday?\nB: She gave me a new ( ____ ). I take pictures with it.',
+    choices: ['calendar', 'camera', 'dictionary', 'umbrella'],
+    answer: 1,
+    explanation: 'camera：カメラ。「それで写真を撮る」がヒントです。',
+  },
+  {
+    id: 'vocab-mc-4-023',
+    prompt: 'My family will ( ____ ) in a hotel near the beach this weekend.',
+    choices: ['ask', 'bring', 'stay', 'teach'],
+    answer: 2,
+    explanation: 'stay：滞在する。stay in a hotel で「ホテルに泊まる」です。',
+  },
+  {
+    id: 'vocab-mc-4-024',
+    prompt: 'Mr. Brown is very ( ____ ). He always helps his students.',
+    choices: ['busy', 'cold', 'young', 'kind'],
+    answer: 3,
+    explanation: 'kind：親切な。いつも生徒を助ける先生なので kind が自然です。',
+  },
+  {
+    id: 'vocab-mc-4-025',
+    prompt: 'A: Are you ( ____ ) this afternoon?\nB: Yes. Let’s go shopping.',
+    choices: ['free', 'slow', 'dark', 'strong'],
+    answer: 0,
+    explanation: 'free：暇な、時間がある。「今日の午後、空いてる？」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-026',
+    prompt: 'I want to send this letter to Canada. Where is the post ( ____ )?',
+    choices: ['party', 'office', 'sport', 'lesson'],
+    answer: 1,
+    explanation: 'post office：郵便局。手紙を送りたいという文脈です。',
+  },
+  {
+    id: 'vocab-mc-4-027',
+    prompt: 'A: Please ( ____ ) me how to use this computer.\nB: OK.',
+    choices: ['move', 'catch', 'show', 'grow'],
+    answer: 2,
+    explanation: 'show：見せる、教える。show me how to ... で「〜のやり方を教えて」です。',
+  },
+  {
+    id: 'vocab-mc-4-028',
+    prompt: 'I was very ( ____ ) after soccer practice, so I drank two glasses of water.',
+    choices: ['popular', 'different', 'ready', 'thirsty'],
+    answer: 3,
+    explanation: 'thirsty：のどが渇いた。水を2杯飲んだことがヒントです。',
+  },
+  {
+    id: 'vocab-mc-4-029',
+    prompt: 'There are seven days in a ( ____ ).',
+    choices: ['week', 'minute', 'year', 'season'],
+    answer: 0,
+    explanation: 'week：週。1週間は7日です。',
+  },
+  {
+    id: 'vocab-mc-4-030',
+    prompt: 'A: Can you come to my birthday party?\nB: Yes. Thank you for the ( ____ ).',
+    choices: ['question', 'invitation', 'weather', 'homework'],
+    answer: 1,
+    explanation: 'invitation：招待。誕生日パーティーに招待された場面です。',
+  },
+  {
+    id: 'vocab-mc-4-031',
+    prompt: 'My father usually reads the ( ____ ) before breakfast.',
+    choices: ['airport', 'mountain', 'newspaper', 'medicine'],
+    answer: 2,
+    explanation: 'newspaper：新聞。read the newspaper で「新聞を読む」です。',
+  },
+  {
+    id: 'vocab-mc-4-032',
+    prompt: 'A: Where is Jack?\nB: He is taking a ( ____ ) in the bathroom.',
+    choices: ['trip', 'walk', 'picture', 'shower'],
+    answer: 3,
+    explanation: 'shower：シャワー。take a shower で「シャワーを浴びる」です。',
+  },
+  {
+    id: 'vocab-mc-4-033',
+    prompt: 'I didn’t understand the question, so I ( ____ ) my teacher for help.',
+    choices: ['asked', 'opened', 'washed', 'started'],
+    answer: 0,
+    explanation: 'asked：尋ねた、頼んだ。ask someone for help で「人に助けを求める」です。',
+  },
+  {
+    id: 'vocab-mc-4-034',
+    prompt: 'A: How often do you practice the piano?\nB: ( ____ ) a week, on Monday and Thursday.',
+    choices: ['Once', 'Twice', 'First', 'Second'],
+    answer: 1,
+    explanation: 'twice：2回。月曜日と木曜日なので週に2回です。',
+  },
+  {
+    id: 'vocab-mc-4-035',
+    prompt: 'We took many pictures during our ( ____ ) to Kyoto.',
+    choices: ['answer', 'language', 'trip', 'problem'],
+    answer: 2,
+    explanation: 'trip：旅行。trip to Kyoto で「京都への旅行」です。',
+  },
+  {
+    id: 'vocab-mc-4-036',
+    prompt: 'Please be ( ____ ) in the library. People are reading.',
+    choices: ['hungry', 'famous', 'different', 'quiet'],
+    answer: 3,
+    explanation: 'quiet：静かな。図書館で読書している人がいるため静かにする、という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-037',
+    prompt: 'My English teacher is from Australia, but she can ( ____ ) Japanese very well.',
+    choices: ['speak', 'look', 'watch', 'listen'],
+    answer: 0,
+    explanation: 'speak：話す。speak Japanese で「日本語を話す」です。',
+  },
+  {
+    id: 'vocab-mc-4-038',
+    prompt: 'A: What are you doing this weekend?\nB: I’m going to ( ____ ) my room.',
+    choices: ['ride', 'clean', 'wear', 'answer'],
+    answer: 1,
+    explanation: 'clean：掃除する。clean my room で「自分の部屋を掃除する」です。',
+  },
+  {
+    id: 'vocab-mc-4-039',
+    prompt: 'Tom is good at basketball. He is the tallest player on his ( ____ ).',
+    choices: ['street', 'class', 'team', 'store'],
+    answer: 2,
+    explanation: 'team：チーム。basketball player が所属するものなので team が正解です。',
+  },
+  {
+    id: 'vocab-mc-4-040',
+    prompt: 'My sister was born in 2015. I was born in 2012, so I am ( ____ ) than her.',
+    choices: ['shorter', 'newer', 'later', 'older'],
+    answer: 3,
+    explanation: 'older：より年上の。2012年生まれなので妹より年上です。',
+  },
+  {
+    id: 'vocab-mc-4-041',
+    prompt: 'A: What did you do at the beach?\nB: We ( ____ ) in the sea and played volleyball.',
+    choices: ['swam', 'drew', 'wrote', 'spoke'],
+    answer: 0,
+    explanation: 'swam：swim の過去形。「海で泳いだ」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-042',
+    prompt: 'A: I’m going to Hokkaido next week.\nB: Have a nice ( ____ )!',
+    choices: ['answer', 'trip', 'class', 'idea'],
+    answer: 1,
+    explanation: 'trip：旅行。Have a nice trip! は「よい旅行を！」という表現です。',
+  },
+  {
+    id: 'vocab-mc-4-043',
+    prompt: 'My mother is busy now, so I have to ( ____ ) my little brother.',
+    choices: ['look at', 'look for', 'look after', 'look like'],
+    answer: 2,
+    explanation: 'look after：世話をする。「弟の世話をしなければならない」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-044',
+    prompt: 'A: May I speak to Mr. Green?\nB: Sorry, he is not here ( ____ ).',
+    choices: ['very much', 'last year', 'every day', 'right now'],
+    answer: 3,
+    explanation: 'right now：今現在。「彼は今ここにいません」という意味です。',
+  },
+  {
+    id: 'vocab-mc-4-045',
+    prompt: 'A: Why were you late for school?\nB: I ( ____ ) the bus this morning.',
+    choices: ['missed', 'kept', 'won', 'sold'],
+    answer: 0,
+    explanation: 'missed：乗り遅れた。miss the bus で「バスに乗り遅れる」です。',
+  },
+];
 export const questionBank: Question[] = [
   ...grade5VocabMc.map(q => ({
     ...q,
@@ -1466,7 +1791,16 @@ export const questionBank: Question[] = [
     mode: 'reading' as const,
     active: true,
   })),
+
+  
+    ...grade4VocabMc.map(q => ({
+    ...q,
+    level: '4' as const,
+    mode: 'vocabulary-mc' as const,
+    active: true,
+  })),
 ];
+ 
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
  const shift=seed%4,rotated=[...items.slice(shift),...items.slice(0,shift)];
  return {choices:rotated as [string,string,string,string],answer:(4-shift)%4};
@@ -1474,7 +1808,7 @@ function rotatedOptions(items:string[],seed:number):{choices:[string,string,stri
 for(let i=0;i<levels.length;i++){
  const level=levels[i],n=String(i+1).padStart(3,'0');
  // Grade 5 vocabulary multiple-choice seeds were removed for the finalized replacement bank.
- if(i>0){
+ if(i>1){
   const vocabIndex=(i-1)*2;
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
