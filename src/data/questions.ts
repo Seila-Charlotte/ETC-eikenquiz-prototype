@@ -4005,13 +4005,6 @@ export const questionBank: Question[] = [
     mode: 'vocabulary-mc' as const,
     active: true,
   })),
-    ...grade4VocabMc.map(q => ({
-    ...q,
-    level: '4' as const,
-    mode: 'vocabulary-mc' as const,
-    active: true,
-  })),
-
   ...grade4VocabJa.map(q => ({
     ...q,
     level: '4' as const,
