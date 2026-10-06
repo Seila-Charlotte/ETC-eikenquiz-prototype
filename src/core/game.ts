@@ -113,3 +113,4 @@ export function dailyResults(results:import('./types').Result[],now=new Date()):
   const today=jstDate(now);
   return results.filter(r=>jstDate(r.createdAt)===today);
 }
+
