@@ -3076,6 +3076,251 @@ const grade4Reading: Grade4ReadingQuestion[] = [
     explanation: 'その日は店が閉まっていたので、翌朝学校へ行く前に行くことにしました。',
   },
 ];
+type Grade3VocabMcQuestion = {
+  id: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
+
+const grade3VocabMc: Grade3VocabMcQuestion[] = [
+  { id:'vocab-mc-3-001', prompt:'I was very ( ____ ) before my speech, but I felt better after I started.', choices:['nervous','empty','famous','cheap'], answer:0, explanation:'nervous＝緊張している。' },
+  { id:'vocab-mc-3-002', prompt:'Please ( ____ ) to turn off the lights before you leave.', choices:['invite','remember','borrow','break'], answer:1, explanation:'remember to ...＝忘れずに〜する。' },
+  { id:'vocab-mc-3-003', prompt:'My grandfather walks every morning to stay ( ____ ).', choices:['cloudy','careful','healthy','foreign'], answer:2, explanation:'healthy＝健康な。' },
+  { id:'vocab-mc-3-004', prompt:'We finally ( ____ ) at the hotel after a long bus ride.', choices:['believed','practiced','invited','arrived'], answer:3, explanation:'arrive＝到着する。' },
+  { id:'vocab-mc-3-005', prompt:'Can I ( ____ ) your dictionary? I forgot mine at home.', choices:['borrow','win','build','send'], answer:0, explanation:'borrow＝借りる。' },
+  { id:'vocab-mc-3-006', prompt:'The sun is very ( ____ ) today, so I need my sunglasses.', choices:['quiet','bright','weak','slow'], answer:1, explanation:'bright＝明るい、まぶしい。' },
+  { id:'vocab-mc-3-007', prompt:'My sister is ( ____ ) in learning about animals.', choices:['afraid','different','interested','ready'], answer:2, explanation:'be interested in＝〜に興味がある。' },
+  { id:'vocab-mc-3-008', prompt:'I ( ____ ) that practicing every day is important.', choices:['carry','borrow','arrive','believe'], answer:3, explanation:'believe＝信じる。' },
+  { id:'vocab-mc-3-009', prompt:'Our team practiced hard and ( ____ ) the final game.', choices:['won','heard','broke','forgot'], answer:0, explanation:'win＝勝つ。過去形は won。' },
+  { id:'vocab-mc-3-010', prompt:'This box is too heavy for me. Could you ( ____ ) it?', choices:['decide','carry','invite','believe'], answer:1, explanation:'carry＝運ぶ、持ち運ぶ。' },
+
+  { id:'vocab-mc-3-011', prompt:'Please read the ( ____ ) before you use this machine.', choices:['season','festival','instructions','language'], answer:2, explanation:'instructions＝説明、指示。' },
+  { id:'vocab-mc-3-012', prompt:'I could not hear the teacher because the classroom was very ( ____ ).', choices:['healthy','lonely','bright','noisy'], answer:3, explanation:'noisy＝騒がしい。' },
+  { id:'vocab-mc-3-013', prompt:'My family will ( ____ ) my aunt in Hokkaido this summer.', choices:['visit','miss','lend','lose'], answer:0, explanation:'visit＝訪れる。' },
+  { id:'vocab-mc-3-014', prompt:'Jane wants to become a doctor in the ( ____ ).', choices:['entrance','future','corner','middle'], answer:1, explanation:'in the future＝将来。' },
+  { id:'vocab-mc-3-015', prompt:'My teacher gave me some useful ( ____ ) about studying English.', choices:['traffic','weather','advice','space'], answer:2, explanation:'advice＝助言、アドバイス。' },
+  { id:'vocab-mc-3-016', prompt:'It is ( ____ ) to wear a helmet when you ride a bicycle.', choices:['popular','surprised','expensive','important'], answer:3, explanation:'important＝重要な。' },
+  { id:'vocab-mc-3-017', prompt:'Ken was ( ____ ) because he could not find his dog.', choices:['worried','delicious','crowded','straight'], answer:0, explanation:'worried＝心配している。' },
+  { id:'vocab-mc-3-018', prompt:'The train was very ( ____ ), so we had to stand.', choices:['gentle','crowded','weak','empty'], answer:1, explanation:'crowded＝混雑した。' },
+  { id:'vocab-mc-3-019', prompt:'We need to ( ____ ) which movie to watch tonight.', choices:['borrow','return','decide','arrive'], answer:2, explanation:'decide＝決める。' },
+  { id:'vocab-mc-3-020', prompt:'I was ( ____ ) to see my old friend at the station.', choices:['necessary','difficult','careful','surprised'], answer:3, explanation:'surprised＝驚いた。' },
+
+  { id:'vocab-mc-3-021', prompt:'Please ( ____ ) me when you arrive at the station.', choices:['call','break','win','paint'], answer:0, explanation:'call＝電話する。' },
+  { id:'vocab-mc-3-022', prompt:'This bag is ( ____ ) from mine. Mine is blue.', choices:['ready','different','sure','strong'], answer:1, explanation:'different from＝〜と異なる。' },
+  { id:'vocab-mc-3-023', prompt:'The students are ( ____ ) for the school festival.', choices:['believing','borrowing','preparing','winning'], answer:2, explanation:'prepare for＝〜の準備をする。' },
+  { id:'vocab-mc-3-024', prompt:'I ( ____ ) an email from my cousin yesterday.', choices:['built','spent','became','received'], answer:3, explanation:'receive＝受け取る。' },
+  { id:'vocab-mc-3-025', prompt:'The museum is free for children ( ____ ) twelve.', choices:['under','during','without','between'], answer:0, explanation:'under twelve＝12歳未満。' },
+  { id:'vocab-mc-3-026', prompt:'My father has worked at this hospital ( ____ ) 2018.', choices:['for','since','during','until'], answer:1, explanation:'since＋開始時点＝〜以来。' },
+  { id:'vocab-mc-3-027', prompt:'We stayed inside ( ____ ) the heavy rain.', choices:['instead','already','because of','almost'], answer:2, explanation:'because of＋名詞＝〜のために。' },
+  { id:'vocab-mc-3-028', prompt:'I am looking ( ____ ) to seeing you next week.', choices:['after','around','up','forward'], answer:3, explanation:'look forward to＝〜を楽しみにする。' },
+  { id:'vocab-mc-3-029', prompt:'Please take ( ____ ) of my cat while I am away.', choices:['care','part','place','time'], answer:0, explanation:'take care of＝〜の世話をする。' },
+  { id:'vocab-mc-3-030', prompt:'We ran ( ____ ) of milk, so I went to buy some.', choices:['over','out','after','across'], answer:1, explanation:'run out of＝〜を使い果たす。' },
+
+  { id:'vocab-mc-3-031', prompt:'My brother is good ( ____ ) playing the guitar.', choices:['on','for','at','from'], answer:2, explanation:'be good at＝〜が得意。' },
+  { id:'vocab-mc-3-032', prompt:'This train goes ( ____ ) to Tokyo, so you do not need to change trains.', choices:['usually','together','finally','directly'], answer:3, explanation:'directly＝直接。' },
+  { id:'vocab-mc-3-033', prompt:'We have lived here ( ____ ) five years.', choices:['for','since','by','from'], answer:0, explanation:'for＋期間＝〜の間。' },
+  { id:'vocab-mc-3-034', prompt:'The teacher asked us to work in ( ____ ).', choices:['signs','groups','prices','roads'], answer:1, explanation:'work in groups＝グループで活動する。' },
+  { id:'vocab-mc-3-035', prompt:'It took me an hour to ( ____ ) my homework.', choices:['invite','lend','finish','travel'], answer:2, explanation:'finish＝終える。' },
+  { id:'vocab-mc-3-036', prompt:'We should protect the ( ____ ) by using less plastic.', choices:['entrance','language','festival','environment'], answer:3, explanation:'environment＝環境。' },
+  { id:'vocab-mc-3-037', prompt:'There were ( ____ ) fifty people at the event.', choices:['about','during','beside','without'], answer:0, explanation:'about＝約、およそ。' },
+  { id:'vocab-mc-3-038', prompt:'I have ( ____ ) finished cleaning my room.', choices:['yet','already','tomorrow','once'], answer:1, explanation:'already＝すでに。' },
+  { id:'vocab-mc-3-039', prompt:'You ( ____ ) see a doctor if you still feel sick tomorrow.', choices:['would','could','should','might'], answer:2, explanation:'should＝〜すべき。' },
+  { id:'vocab-mc-3-040', prompt:'My mother ( ____ ) me to clean my room before dinner.', choices:['heard','built','won','asked'], answer:3, explanation:'ask 人 to do＝人に〜するよう頼む。' },
+
+  { id:'vocab-mc-3-041', prompt:'I have never ( ____ ) to Australia.', choices:['been','went','go','going'], answer:0, explanation:'have been to＝〜へ行ったことがある。' },
+  { id:'vocab-mc-3-042', prompt:'The girl ( ____ ) is singing on stage is my sister.', choices:['which','who','where','when'], answer:1, explanation:'人を説明する関係代名詞なので who。' },
+  { id:'vocab-mc-3-043', prompt:'This is the book ( ____ ) I bought yesterday.', choices:['who','where','that','when'], answer:2, explanation:'物を説明する関係代名詞 that が適切。' },
+  { id:'vocab-mc-3-044', prompt:'If it is sunny tomorrow, we ( ____ ) go hiking.', choices:['went','going','go','will'], answer:3, explanation:'If＋現在形, will＋動詞。' },
+  { id:'vocab-mc-3-045', prompt:'English is spoken in many ( ____ ) around the world.', choices:['countries','homeworks','advices','informations'], answer:0, explanation:'country＝国。many の後なので複数形 countries。' },
+];
+type Grade3VocabJaQuestion = {
+  id: string;
+  prompt: string;
+  accepted: string[];
+  partialAnswers?: {
+    answers: string[];
+    credit: number;
+  }[];
+  explanation: string;
+};
+
+const grade3VocabJa: Grade3VocabJaQuestion[] = [
+  { id:'vocab-ja-3-001', prompt:'nervous', accepted:['緊張している','きんちょうしている','緊張した','きんちょうした','あがっている'], partialAnswers:[{answers:['緊張','きんちょう'],credit:0.75}], explanation:'nervous：緊張している' },
+  { id:'vocab-ja-3-002', prompt:'healthy', accepted:['健康な','けんこうな','健康的な','けんこうてきな'], partialAnswers:[{answers:['健康','けんこう'],credit:0.75}], explanation:'healthy：健康な' },
+  { id:'vocab-ja-3-003', prompt:'believe', accepted:['信じる','しんじる'], partialAnswers:[{answers:['信用する','しんようする'],credit:0.75}], explanation:'believe：信じる' },
+  { id:'vocab-ja-3-004', prompt:'future', accepted:['未来','みらい','将来','しょうらい'], explanation:'future：未来、将来' },
+  { id:'vocab-ja-3-005', prompt:'advice', accepted:['助言','じょげん','アドバイス'], explanation:'advice：助言、アドバイス' },
+  { id:'vocab-ja-3-006', prompt:'environment', accepted:['環境','かんきょう'], explanation:'environment：環境' },
+  { id:'vocab-ja-3-007', prompt:'important', accepted:['重要な','じゅうような','大切な','たいせつな'], partialAnswers:[{answers:['重要','じゅうよう','大切','たいせつ'],credit:0.75}], explanation:'important：重要な、大切な' },
+  { id:'vocab-ja-3-008', prompt:'worried', accepted:['心配している','しんぱいしている','心配した','しんぱいした'], partialAnswers:[{answers:['心配','しんぱい'],credit:0.75}], explanation:'worried：心配している' },
+  { id:'vocab-ja-3-009', prompt:'crowded', accepted:['混雑した','こんざつした','混んでいる','こんでいる'], partialAnswers:[{answers:['混雑','こんざつ'],credit:0.75}], explanation:'crowded：混雑した' },
+  { id:'vocab-ja-3-010', prompt:'decide', accepted:['決める','きめる','決定する','けっていする'], partialAnswers:[{answers:['決定','けってい'],credit:0.75}], explanation:'decide：決める' },
+
+  { id:'vocab-ja-3-011', prompt:'surprised', accepted:['驚いた','おどろいた','驚いている','おどろいている'], partialAnswers:[{answers:['驚く','おどろく'],credit:0.75}], explanation:'surprised：驚いた' },
+  { id:'vocab-ja-3-012', prompt:'receive', accepted:['受け取る','うけとる','受ける','うける'], explanation:'receive：受け取る' },
+  { id:'vocab-ja-3-013', prompt:'prepare', accepted:['準備する','じゅんびする','用意する','よういする'], partialAnswers:[{answers:['準備','じゅんび','用意','ようい'],credit:0.75}], explanation:'prepare：準備する' },
+  { id:'vocab-ja-3-014', prompt:'instructions', accepted:['指示','しじ','説明','せつめい','使用方法','しようほうほう'], explanation:'instructions：指示、説明' },
+  { id:'vocab-ja-3-015', prompt:'foreign', accepted:['外国の','がいこくの','外国産の','がいこくさんの'], partialAnswers:[{answers:['外国','がいこく'],credit:0.75}], explanation:'foreign：外国の' },
+  { id:'vocab-ja-3-016', prompt:'especially', accepted:['特に','とくに','特別に','とくべつに'], explanation:'especially：特に' },
+  { id:'vocab-ja-3-017', prompt:'probably', accepted:['たぶん','多分','おそらく','恐らく'], explanation:'probably：たぶん、おそらく' },
+  { id:'vocab-ja-3-018', prompt:'finally', accepted:['ついに','とうとう','最後に','さいごに'], explanation:'finally：ついに、最後に' },
+  { id:'vocab-ja-3-019', prompt:'during', accepted:['の間に','のあいだに','の間','のあいだ'], explanation:'during：〜の間に' },
+  { id:'vocab-ja-3-020', prompt:'without', accepted:['なしで','無しで','なく','ないで','なしに'], explanation:'without：〜なしで' },
+
+  { id:'vocab-ja-3-021', prompt:'look forward to', accepted:['楽しみにする','たのしみにする','楽しみにしている','たのしみにしている'], partialAnswers:[{answers:['楽しみ','たのしみ'],credit:0.5}], explanation:'look forward to：〜を楽しみにする' },
+  { id:'vocab-ja-3-022', prompt:'be interested in', accepted:['に興味がある','にきょうみがある','に興味を持つ','にきょうみをもつ','に興味を持っている','にきょうみをもっている'], partialAnswers:[{answers:['興味','きょうみ'],credit:0.5}], explanation:'be interested in：〜に興味がある' },
+  { id:'vocab-ja-3-023', prompt:'take care of', accepted:['世話をする','せわをする','面倒を見る','めんどうをみる'], partialAnswers:[{answers:['世話','せわ','面倒','めんどう'],credit:0.5}], explanation:'take care of：〜の世話をする' },
+  { id:'vocab-ja-3-024', prompt:'run out of', accepted:['使い果たす','つかいはたす','なくなる','無くなる','切らす','きらす'], explanation:'run out of：〜を使い果たす、〜がなくなる' },
+  { id:'vocab-ja-3-025', prompt:'because of', accepted:['のために','のせいで','が理由で','がりゆうで'], explanation:'because of：〜のために' },
+  { id:'vocab-ja-3-026', prompt:'for a while', accepted:['しばらくの間','しばらくのあいだ','しばらく'], explanation:'for a while：しばらくの間' },
+  { id:'vocab-ja-3-027', prompt:'at first', accepted:['最初は','さいしょは','初めは','はじめは'], explanation:'at first：最初は' },
+  { id:'vocab-ja-3-028', prompt:'for example', accepted:['例えば','たとえば'], explanation:'for example：例えば' },
+  { id:'vocab-ja-3-029', prompt:'in the future', accepted:['将来','しょうらい','未来に','みらいに'], explanation:'in the future：将来' },
+  { id:'vocab-ja-3-030', prompt:'each other', accepted:['お互いに','おたがいに','互いに','たがいに'], explanation:'each other：お互いに' },
+
+  { id:'vocab-ja-3-031', prompt:'experience', accepted:['経験','けいけん','体験','たいけん'], explanation:'experience：経験、体験' },
+  { id:'vocab-ja-3-032', prompt:'information', accepted:['情報','じょうほう'], explanation:'information：情報' },
+  { id:'vocab-ja-3-033', prompt:'culture', accepted:['文化','ぶんか'], explanation:'culture：文化' },
+  { id:'vocab-ja-3-034', prompt:'language', accepted:['言語','げんご','言葉','ことば'], explanation:'language：言語' },
+  { id:'vocab-ja-3-035', prompt:'volunteer', accepted:['ボランティア','奉仕者','ほうししゃ'], explanation:'volunteer：ボランティア' },
+  { id:'vocab-ja-3-036', prompt:'necessary', accepted:['必要な','ひつような'], partialAnswers:[{answers:['必要','ひつよう'],credit:0.75}], explanation:'necessary：必要な' },
+  { id:'vocab-ja-3-037', prompt:'popular', accepted:['人気のある','にんきのある','人気がある','にんきがある'], partialAnswers:[{answers:['人気','にんき'],credit:0.75}], explanation:'popular：人気のある' },
+  { id:'vocab-ja-3-038', prompt:'possible', accepted:['可能な','かのうな','可能である','かのうである','できる'], partialAnswers:[{answers:['可能','かのう'],credit:0.75}], explanation:'possible：可能な' },
+  { id:'vocab-ja-3-039', prompt:'careful', accepted:['注意深い','ちゅういぶかい','慎重な','しんちょうな','気をつけている','きをつけている'], explanation:'careful：注意深い' },
+  { id:'vocab-ja-3-040', prompt:'useful', accepted:['役に立つ','やくにたつ','便利な','べんりな','有用な','ゆうような'], explanation:'useful：役に立つ' },
+
+  { id:'vocab-ja-3-041', prompt:'continue', accepted:['続ける','つづける','続く','つづく','継続する','けいぞくする'], explanation:'continue：続ける、続く' },
+  { id:'vocab-ja-3-042', prompt:'protect', accepted:['守る','まもる','保護する','ほごする'], explanation:'protect：守る、保護する' },
+  { id:'vocab-ja-3-043', prompt:'improve', accepted:['改善する','かいぜんする','上達する','じょうたつする','向上する','こうじょうする'], partialAnswers:[{answers:['改善','かいぜん','上達','じょうたつ'],credit:0.75}], explanation:'improve：改善する、上達する' },
+  { id:'vocab-ja-3-044', prompt:'choose', accepted:['選ぶ','えらぶ','選択する','せんたくする'], explanation:'choose：選ぶ' },
+  { id:'vocab-ja-3-045', prompt:'instead of', accepted:['の代わりに','のかわりに','ではなく','に代えて','にかえて'], explanation:'instead of：〜の代わりに' },
+];
+type Grade3ConversationQuestion = {
+  id: string;
+  dialogue: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
+
+const grade3Conversation: Grade3ConversationQuestion[] = [
+  {id:'conversation-3-001',dialogue:'A: Have you finished your science project?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Not yet. I’ll finish it tonight.','For two weeks.','At the science museum.','Yes, science is interesting.'],answer:0,explanation:'完了したかへの返答なので Not yet が自然です。'},
+  {id:'conversation-3-002',dialogue:'A: Why don’t we go cycling this afternoon?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I bought it yesterday.','I’d love to, but I have homework.','For about two hours.','It was sunny.'],answer:1,explanation:'誘いに対する自然な返答です。'},
+  {id:'conversation-3-003',dialogue:'A: How long have you studied English?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['At school.','Since Monday.','For about five years.','Three times a week.'],answer:2,explanation:'How long には期間を答えます。'},
+  {id:'conversation-3-004',dialogue:'A: Excuse me. Is there a post office near here?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I mailed it yesterday.','It closes at five.','I need some stamps.','Yes. It’s across from the bank.'],answer:3,explanation:'場所を尋ねられているので所在地を答えます。'},
+  {id:'conversation-3-005',dialogue:'A: You look tired. Are you OK?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I stayed up late studying.','I like this shirt.','It’s half past nine.','I came by bus.'],answer:0,explanation:'疲れている理由を説明する返答です。'},
+  {id:'conversation-3-006',dialogue:'A: What do you think of this movie?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['At seven thirty.','I think it’s really interesting.','With my sister.','It lasts two hours.'],answer:1,explanation:'What do you think of...? は感想を尋ねます。'},
+  {id:'conversation-3-007',dialogue:'A: I’m going to take part in a speech contest.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I heard the speech.','The room is upstairs.','Good luck!','I took the bus.'],answer:2,explanation:'コンテストに出る人への応援です。'},
+  {id:'conversation-3-008',dialogue:'A: Could you tell me how to get to the museum?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['It has many paintings.','I went last month.','It costs 500 yen.','Go straight and turn left at the second light.'],answer:3,explanation:'行き方を尋ねているので道順を答えます。'},
+  {id:'conversation-3-009',dialogue:'A: What are you doing this weekend?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I’m visiting my grandparents.','Last Saturday.','For three days.','At my house.'],answer:0,explanation:'週末の予定への返答です。'},
+  {id:'conversation-3-010',dialogue:'A: May I borrow your tablet for a minute?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I bought it online.','Sure, but I need it back soon.','It was expensive.','I use it every day.'],answer:1,explanation:'借りてもよいかという依頼への返答です。'},
+
+  {id:'conversation-3-011',dialogue:'A: Have you ever been to Okinawa?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Next summer.','By airplane.','Yes, I went there two years ago.','For four days.'],answer:2,explanation:'経験を尋ねる現在完了への返答です。'},
+  {id:'conversation-3-012',dialogue:'A: I’m sorry, but I broke your pencil.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I have three pencils.','It’s on my desk.','I bought a notebook.','Don’t worry about it.'],answer:3,explanation:'謝罪に対する自然な返答です。'},
+  {id:'conversation-3-013',dialogue:'A: Which club are you thinking of joining?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['The photography club.','After school.','With my friend.','Twice a week.'],answer:0,explanation:'Which club にクラブ名を答えます。'},
+  {id:'conversation-3-014',dialogue:'A: Why were you absent yesterday?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['At eight thirty.','Because I had a fever.','For one day.','In my classroom.'],answer:1,explanation:'Why に理由を答えています。'},
+  {id:'conversation-3-015',dialogue:'A: Would you mind opening the window?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['It is a large window.','The door is closed.','Not at all.','I opened it yesterday.'],answer:2,explanation:'Would you mind...? への承諾として Not at all. が自然です。'},
+  {id:'conversation-3-016',dialogue:'A: When will your brother come home?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['For two hours.','From his school.','By bicycle.','Probably around six.'],answer:3,explanation:'When に時刻を答えます。'},
+  {id:'conversation-3-017',dialogue:'A: I passed my English test!\nB: ( ____ )',prompt:'Choose the best answer.',choices:['That’s great! Congratulations!','The test starts tomorrow.','English is spoken here.','I studied at home.'],answer:0,explanation:'合格報告への祝福です。'},
+  {id:'conversation-3-018',dialogue:'A: Do you know who this umbrella belongs to?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['It’s raining outside.','I think it’s Emma’s.','It’s beside the door.','I have an umbrella.'],answer:1,explanation:'誰の傘かという質問への返答です。'},
+  {id:'conversation-3-019',dialogue:'A: What should I bring to the picnic?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['We went last year.','The park is large.','Please bring something to drink.','At eleven o’clock.'],answer:2,explanation:'何を持参すべきか答えています。'},
+  {id:'conversation-3-020',dialogue:'A: I can’t find my phone anywhere.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['My phone is new.','I called yesterday.','It costs a lot.','Have you checked your bag?'],answer:3,explanation:'探し物に対して確認場所を提案しています。'},
+
+  {id:'conversation-3-021',dialogue:'A: How was your trip to Kyoto?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['It was wonderful.','For three nights.','By train.','Last month.'],answer:0,explanation:'旅行の感想を答えます。'},
+  {id:'conversation-3-022',dialogue:'A: What made you interested in astronomy?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['At the science club.','A book my uncle gave me.','About five years ago.','I use a telescope.'],answer:1,explanation:'何が興味を持つきっかけになったか答えています。'},
+  {id:'conversation-3-023',dialogue:'A: Could I speak to Anna, please?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['She speaks French.','She has a phone.','I’m sorry, she’s not home right now.','Anna is my cousin.'],answer:2,explanation:'電話で相手が不在だと伝える表現です。'},
+  {id:'conversation-3-024',dialogue:'A: What would you like for your birthday?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['My birthday is Tuesday.','At my house.','With my friends.','I’d like a new backpack.'],answer:3,explanation:'欲しい物を尋ねられています。'},
+  {id:'conversation-3-025',dialogue:'A: Can you help me move this table?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Of course. Where should we put it?','It is made of wood.','I bought a table yesterday.','There are four chairs.'],answer:0,explanation:'手伝いの依頼に応じる返答です。'},
+  {id:'conversation-3-026',dialogue:'A: Have you decided what to do during summer vacation?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Summer is hot.','Yes. I’m going to visit Australia.','School ends at three.','I decided yesterday’s lunch.'],answer:1,explanation:'夏休みの予定を決めたかへの返答です。'},
+  {id:'conversation-3-027',dialogue:'A: How often do you practice the piano?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['For five years.','At my teacher’s house.','Almost every day.','For thirty minutes.'],answer:2,explanation:'How often は頻度を尋ねます。'},
+  {id:'conversation-3-028',dialogue:'A: I forgot to bring my lunch today.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Lunch starts at noon.','I had curry yesterday.','The cafeteria is downstairs.','You can share mine if you want.'],answer:3,explanation:'昼食を忘れた相手への自然な申し出です。'},
+  {id:'conversation-3-029',dialogue:'A: Is it OK if I sit here?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Sure. No one is using that seat.','The chair is brown.','I sat there yesterday.','There are twenty seats.'],answer:0,explanation:'席を使ってよいかへの許可です。'},
+  {id:'conversation-3-030',dialogue:'A: What time should we leave for the airport?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['The plane is large.','Around seven should be early enough.','I traveled last year.','It takes a plane.'],answer:1,explanation:'出発時刻への提案です。'},
+
+  {id:'conversation-3-031',dialogue:'A: I heard you joined the tennis club.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Tennis balls are yellow.','The club room is upstairs.','Yes. I’ve already made some new friends.','My brother likes soccer.'],answer:2,explanation:'入部したという話への自然な返答です。'},
+  {id:'conversation-3-032',dialogue:'A: Why are you learning Spanish?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Three times a week.','At a language school.','For six months.','Because I want to travel in Spain.'],answer:3,explanation:'Why に目的・理由を答えています。'},
+  {id:'conversation-3-033',dialogue:'A: Would you like me to carry that box?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Yes, please. It’s quite heavy.','I bought it at the store.','There are books inside.','It’s a brown box.'],answer:0,explanation:'手伝いの申し出を受けています。'},
+  {id:'conversation-3-034',dialogue:'A: What happened to your bicycle?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I ride it every morning.','I got a flat tire on my way home.','It is beside the house.','My father has one too.'],answer:1,explanation:'自転車に何が起きたかを説明しています。'},
+  {id:'conversation-3-035',dialogue:'A: Do you think it’ll rain tomorrow?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I forgot my umbrella.','It rained yesterday.','Probably. The forecast says so.','Tomorrow is Saturday.'],answer:2,explanation:'天気予報を根拠に予想しています。'},
+  {id:'conversation-3-036',dialogue:'A: I’m having trouble with this math question.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Math is my first class.','The test was Monday.','My notebook is blue.','Let me take a look.'],answer:3,explanation:'困っている相手を手伝う自然な表現です。'},
+  {id:'conversation-3-037',dialogue:'A: Have you read this book before?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['No, but I’ve heard it’s good.','At the library.','It has 200 pages.','My friend has books.'],answer:0,explanation:'読んだ経験を尋ねる質問への返答です。'},
+  {id:'conversation-3-038',dialogue:'A: What are you going to do with your old clothes?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['They are too small.','I’m going to donate them.','I bought them last year.','They’re in my room.'],answer:1,explanation:'古着をどうする予定か答えています。'},
+  {id:'conversation-3-039',dialogue:'A: When did you start playing volleyball?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Twice a week.','For my school.','When I was ten.','With my classmates.'],answer:2,explanation:'始めた時期を答えています。'},
+  {id:'conversation-3-040',dialogue:'A: I’m afraid I can’t come to your party.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['The party was fun.','I bought some food.','It begins at six.','That’s too bad. Maybe next time.'],answer:3,explanation:'来られないという知らせへの自然な返答です。'},
+
+  {id:'conversation-3-041',dialogue:'A: Which bus goes to City Hall?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['The number 12 bus does.','About twenty minutes.','At the next stop.','It costs 200 yen.'],answer:0,explanation:'Which bus にバス番号を答えます。'},
+  {id:'conversation-3-042',dialogue:'A: You’ve been studying for a long time. Why don’t you take a break?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['My test was difficult.','Good idea. I’ll get something to drink.','I studied science yesterday.','The library closes at six.'],answer:1,explanation:'休憩の提案に同意しています。'},
+  {id:'conversation-3-043',dialogue:'A: What was the best part of your school trip?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['We went by bus.','It was last Friday.','Visiting the old castle.','There were thirty students.'],answer:2,explanation:'旅行で一番良かったことを答えています。'},
+  {id:'conversation-3-044',dialogue:'A: Excuse me, I think you dropped this wallet.\nB: ( ____ )',prompt:'Choose the best answer.',choices:['I bought a new bag.','It has some money.','The store is nearby.','Oh, thank you so much!'],answer:3,explanation:'落とし物を拾ってもらったことへの感謝です。'},
+  {id:'conversation-3-045',dialogue:'A: Are you free after school tomorrow?\nB: ( ____ )',prompt:'Choose the best answer.',choices:['Yes. What do you want to do?','Tomorrow is Wednesday.','School starts at eight.','I finished my homework.'],answer:0,explanation:'予定が空いているかへの自然な返答です。'},
+];
+type Grade3ReadingQuestion = {
+  id: string;
+  passage: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
+
+const grade3Reading: Grade3ReadingQuestion[] = [
+  {id:'reading-3-001',passage:'Maya joined her school’s gardening club in April. At first, she knew little about plants, but older members taught her how to grow vegetables. Now she takes care of tomatoes at home, too.',prompt:'What happened after Maya joined the club?',choices:['She learned how to grow plants.','She stopped gardening at home.','She taught the older students.','She bought a new house.'],answer:0,explanation:'上級生から植物の育て方を教わったとあります。'},
+  {id:'reading-3-002',passage:'Hi Jack,\nThe basketball game on Saturday has been moved from 1:00 to 3:00 because another team is using the gym. Let’s meet at the school gate at 2:30.\n— Ben',prompt:'When should Jack meet Ben?',choices:['At 1:00.','At 2:30.','At 3:00.','At 3:30.'],answer:1,explanation:'集合は school gate at 2:30 です。'},
+  {id:'reading-3-003',passage:'Lena wanted to buy a new jacket, but she decided to wait for the weekend sale. On Saturday, the jacket was 30 percent cheaper, so she also had enough money to buy a scarf.',prompt:'Why did Lena wait until Saturday?',choices:['She was busy before Saturday.','The store was closed.','She wanted to pay less for the jacket.','Her friend needed a scarf.'],answer:2,explanation:'週末セールで安くなるのを待っていました。'},
+  {id:'reading-3-004',passage:'COMMUNITY CENTER\nCooking Class — 10:00–12:00\nArt Class — 13:00–15:00\nMusic Class — 15:30–17:00\nPlease arrive 15 minutes before your class.',prompt:'A student in the art class should arrive by:',choices:['12:00.','12:30.','13:00.','12:45.'],answer:3,explanation:'13:00開始の15分前なので12:45です。'},
+  {id:'reading-3-005',passage:'Leo used to take the bus to school every day. Last month, he started riding his bicycle instead. He says it takes about the same amount of time, but he enjoys getting some exercise before class.',prompt:'Why does Leo like riding his bicycle to school?',choices:['He can exercise.','It is much faster.','The bus stopped running.','His school moved.'],answer:0,explanation:'授業前に運動できることを楽しんでいます。'},
+
+  {id:'reading-3-006',passage:'Dear Ms. Brown,\nI cannot come to music practice today because I have a dentist appointment. I practiced the new song at home yesterday. Could you tell me what I should practice for Friday?\n— Amy',prompt:'Why is Amy writing to Ms. Brown?',choices:['To change dentists.','To explain why she will miss practice.','To invite her to a concert.','To borrow some music.'],answer:1,explanation:'歯医者のため練習を欠席すると説明しています。'},
+  {id:'reading-3-007',passage:'Sam and his sister wanted to see a movie at 2:00, but all the tickets were sold. They bought tickets for the 4:30 show instead and went to a café while they waited.',prompt:'What did Sam and his sister do after they could not get tickets for 2:00?',choices:['They went home.','They watched another movie.','They bought tickets for a later show.','They waited outside the theater.'],answer:2,explanation:'4:30の回のチケットを買いました。'},
+  {id:'reading-3-008',passage:'LIBRARY NOTICE\nThe second floor will be closed Tuesday morning for cleaning. Computers on the first floor can still be used. The second floor will open again at 1:00 p.m.',prompt:'When can visitors use the second floor on Tuesday?',choices:['At 9:00 a.m.','At 10:30 a.m.','At noon.','At 2:00 p.m.'],answer:3,explanation:'13時に再開するため14時なら利用できます。'},
+  {id:'reading-3-009',passage:'Olivia started keeping a diary in English three months ago. At first, she wrote only two or three sentences each day. Now she can usually write a whole page.',prompt:'What has changed about Olivia’s diary?',choices:['She can write more than before.','She now writes in Japanese.','She stopped writing every day.','She has lost her diary.'],answer:0,explanation:'最初は数文でしたが、今は1ページ書けます。'},
+  {id:'reading-3-010',passage:'To: Soccer Club\nTomorrow’s practice will end at 5:00 instead of 5:30 because the coach has a meeting. Please ask your family to pick you up earlier if necessary.',prompt:'What has changed about tomorrow’s practice?',choices:['The place.','The finishing time.','The coach.','The starting time.'],answer:1,explanation:'終了時刻が5:30から5:00に変更されています。'},
+
+  {id:'reading-3-011',passage:'Ken wanted to learn how to cook, so his uncle taught him a simple pasta recipe. Ken made it by himself the following week. His family liked it so much that he plans to make dinner again next Sunday.',prompt:'What does Ken plan to do next Sunday?',choices:['Visit his uncle.','Buy a cookbook.','Cook dinner again.','Eat at a restaurant.'],answer:2,explanation:'next Sunday にまた夕食を作る予定です。'},
+  {id:'reading-3-012',passage:'GREEN ZOO\nAdults: ¥1,200\nStudents: ¥700\nChildren under 6: Free\nFamily Day every third Sunday: Students ¥500',prompt:'A student visits on the third Sunday of the month. How much is the ticket?',choices:['¥1,200','¥700','Free','¥500'],answer:3,explanation:'第3日曜は学生料金が500円です。'},
+  {id:'reading-3-013',passage:'Emma was planning to study at the library after school. However, her friend called and said the library was closed. Emma went home and studied there instead.',prompt:'Where did Emma study?',choices:['At home.','At the library.','At her friend’s house.','At school.'],answer:0,explanation:'図書館が閉まっていたため自宅で勉強しました。'},
+  {id:'reading-3-014',passage:'Hi Yuki,\nI’m having a small birthday party this Sunday. It starts at 2:00, but could you come at 1:30? I need some help putting food on the tables.\n— Sara',prompt:'Why does Sara want Yuki to come at 1:30?',choices:['To buy food.','To help prepare for the party.','To meet another friend.','To leave before the party.'],answer:1,explanation:'食べ物をテーブルに並べる手伝いを頼んでいます。'},
+  {id:'reading-3-015',passage:'Tom has wanted a dog for several years. His parents told him that having a pet requires a lot of work. To show that he is responsible, Tom has been helping his neighbor take care of her dog every weekend.',prompt:'Why is Tom helping his neighbor?',choices:['He needs money.','His neighbor is moving.','He wants to show he can care for a pet.','His parents dislike dogs.'],answer:2,explanation:'ペットを世話する責任感があることを示すためです。'},
+
+  {id:'reading-3-016',passage:'BUS SCHEDULE\nHill Station 9:10 → Lake Park 9:45\nHill Station 10:00 → Lake Park 10:35\nHill Station 10:50 → Lake Park 11:25\nThe park tour begins at 11:00.',prompt:'What is the latest bus someone can take and still arrive before the tour?',choices:['The 9:10 bus.','The 10:50 bus.','None of them.','The 10:00 bus.'],answer:3,explanation:'10:00発は10:35着。10:50発は11:25着で遅れます。'},
+  {id:'reading-3-017',passage:'Nora was nervous about speaking English during her trip abroad. However, she found that people understood her even when she made small mistakes. After the trip, she became more confident about speaking.',prompt:'How did Nora change after her trip?',choices:['She became more confident.','She stopped studying English.','She became afraid of traveling.','She decided not to speak English.'],answer:0,explanation:'旅行後は英語を話す自信が増しました。'},
+  {id:'reading-3-018',passage:'Dear Mr. Green,\nThank you for showing our class around the science museum yesterday. I especially enjoyed learning about space. Several students said they want to visit the museum again with their families.\n— Ms. Lee',prompt:'What did Ms. Lee’s students do yesterday?',choices:['They studied at school.','They visited a science museum.','They met an astronaut.','They went to a space center.'],answer:1,explanation:'science museum を案内してもらったとあります。'},
+  {id:'reading-3-019',passage:'Alex usually buys lunch at school for 600 yen. This month, he wants to save money for a concert ticket, so he has started bringing lunch from home.',prompt:'Why has Alex changed his lunch habit?',choices:['School lunches became unhealthy.','His parents asked him to cook.','He wants to save money.','The school cafeteria closed.'],answer:2,explanation:'コンサートチケットのために節約しています。'},
+  {id:'reading-3-020',passage:'SPORTS DAY\n9:00 Opening\n9:30 Running races\n11:00 Basketball\n12:30 Lunch\n13:30 Soccer\n15:00 Closing',prompt:'What happens immediately after lunch?',choices:['Running races.','Basketball.','Closing.','Soccer.'],answer:3,explanation:'昼食12:30の次は13:30のサッカーです。'},
+
+  {id:'reading-3-021',passage:'Maria has been studying French for two years. She began because she loves French movies. Recently, she started talking online with a student in France, which gives her more chances to use the language.',prompt:'What is a recent change in Maria’s French study?',choices:['She talks with a student in France.','She stopped watching movies.','She moved to France.','She began studying French yesterday.'],answer:0,explanation:'最近フランスの学生とオンラインで話し始めました。'},
+  {id:'reading-3-022',passage:'Hi Dad,\nMy train is running about twenty minutes late because of the heavy rain. I was supposed to arrive at 6:10, so I’ll probably get there around 6:30.\n— Ryan',prompt:'When will Ryan probably arrive?',choices:['5:50.','6:30.','6:10.','7:00.'],answer:1,explanation:'予定6:10＋20分＝約6:30です。'},
+  {id:'reading-3-023',passage:'Aiko’s school collected old books for a community center. Aiko brought five books, and her brother gave her three more to take. Her class collected 60 books altogether.',prompt:'How many books did Aiko take to school?',choices:['Three.','Five.','Eight.','Sixty.'],answer:2,explanation:'自分の5冊＋兄の3冊＝8冊です。'},
+  {id:'reading-3-024',passage:'CITY POOL\nWeekdays 7:00–20:00\nWeekends 9:00–18:00\nClosed on the first Monday of each month.',prompt:'Which person can use the pool?',choices:['Someone at 8:00 Sunday.','Someone at 21:00 Friday.','Someone at 19:00 Saturday.','Someone at 10:00 Sunday.'],answer:3,explanation:'日曜は9:00〜18:00なので10時なら利用できます。'},
+  {id:'reading-3-025',passage:'James used to throw away plastic bottles after drinking from them. After learning about recycling at school, he began putting them in the recycling box near his house.',prompt:'What caused James to change his behavior?',choices:['A lesson at school.','A new store.','His family moved.','He stopped drinking water.'],answer:0,explanation:'学校でリサイクルについて学んだことがきっかけです。'},
+
+  {id:'reading-3-026',passage:'Dear Anna,\nCould you return the book I lent you by Thursday? I need it for my history report, which is due on Friday. You can leave it on my desk if I’m not there.\n— Lisa',prompt:'Why does Lisa need the book back?',choices:['She wants to sell it.','She needs it for a report.','Anna has had it too long.','Her teacher wants it.'],answer:1,explanation:'金曜日提出の歴史レポートに必要です。'},
+  {id:'reading-3-027',passage:'Chris hoped to play soccer outside, but it began raining after lunch. His friends suggested playing video games, but Chris wanted some exercise, so they went to an indoor sports center.',prompt:'Why did Chris choose the sports center?',choices:['He needed to buy something.','His friends disliked games.','He wanted to exercise.','The rain had stopped.'],answer:2,explanation:'運動したかったので屋内スポーツセンターへ行きました。'},
+  {id:'reading-3-028',passage:'ENGLISH CLUB EVENT\nFriday 4:00–5:30\nRoom 8\nActivities: English games and short speeches\nBring: A notebook and pencil\nDrinks will be provided.',prompt:'What do students NOT need to bring?',choices:['A notebook.','A pencil.','Something to write with.','A drink.'],answer:3,explanation:'飲み物は provided＝用意されます。'},
+  {id:'reading-3-029',passage:'Lucy wanted to improve her running time. She began running for twenty minutes three mornings a week. After two months, she finished a school race faster than she had the year before.',prompt:'What was the result of Lucy’s practice?',choices:['Her race time improved.','She stopped running.','She joined another school.','She began swimming.'],answer:0,explanation:'前年より速く走れるようになりました。'},
+  {id:'reading-3-030',passage:'Hi Mom,\nThe art club meeting is taking longer than expected. It was supposed to finish at 5:00, but our teacher says we need another thirty minutes. I’ll take the 5:45 bus home.\n— Mia',prompt:'Why will Mia come home later?',choices:['She missed her bus.','Her club meeting will finish late.','She is going shopping.','Her teacher canceled the meeting.'],answer:1,explanation:'美術部のミーティングが予定より長引いています。'},
+
+  {id:'reading-3-031',passage:'Ethan found a wallet in the park. There was money inside, but no phone number. He took it to the police station. The next day, the owner called Ethan to thank him.',prompt:'What did Ethan do with the wallet?',choices:['He kept it.','He gave it to a friend.','He took it to the police.','He left it in the park.'],answer:2,explanation:'警察署へ持って行きました。'},
+  {id:'reading-3-032',passage:'BOOK CLUB\nOctober 5: Choose a book\nOctober 12: Read pages 1–50\nOctober 19: Finish the book\nOctober 26: Group discussion',prompt:'What should members have done before October 26?',choices:['Choose a new club.','Write a new book.','Visit a library.','Finish reading the book.'],answer:3,explanation:'10月19日に Finish the book とあります。'},
+  {id:'reading-3-033',passage:'Sofia’s grandmother lives alone, so Sofia visits her every Saturday. They often cook lunch together. Recently, her grandmother has been teaching Sofia recipes that she learned when she was young.',prompt:'What is Sofia learning from her grandmother?',choices:['How to cook some recipes.','How to play a sport.','How to live alone.','How to grow vegetables.'],answer:0,explanation:'祖母が昔覚えたレシピを教えています。'},
+  {id:'reading-3-034',passage:'Dear Club Members,\nBecause many students will be taking exams next week, there will be no meeting on Wednesday. Our next meeting will be on October 18. Please finish your posters before then.\n— Mr. Hall',prompt:'Why was the Wednesday meeting canceled?',choices:['The teacher will be away.','Many students have exams.','The posters are finished.','The club room is closed.'],answer:1,explanation:'多くの生徒が試験を受けるためです。'},
+  {id:'reading-3-035',passage:'Ben wanted to volunteer at an animal shelter, but volunteers must be at least fifteen. Ben is fourteen now, so he decided to help collect food for the shelter until he is old enough.',prompt:'Why can’t Ben volunteer at the shelter yet?',choices:['He does not like animals.','The shelter is too far away.','He is too young.','He has no free time.'],answer:2,explanation:'15歳以上が条件ですがBenは14歳です。'},
+
+  {id:'reading-3-036',passage:'SCIENCE MUSEUM WORKSHOP\n10:00 Robots\n12:00 Lunch break\n13:00 Space\n15:00 Animals\nEach workshop lasts 90 minutes.',prompt:'When does the space workshop finish?',choices:['13:30.','14:00.','15:00.','14:30.'],answer:3,explanation:'13:00開始＋90分＝14:30です。'},
+  {id:'reading-3-037',passage:'Grace wanted to read more books this year, so she decided to read for fifteen minutes before bed instead of watching videos. She has already finished six books since January.',prompt:'How is Grace trying to read more?',choices:['She reads before going to sleep.','She buys books every day.','She watches book videos.','She wakes up earlier.'],answer:0,explanation:'寝る前に15分読む習慣を作りました。'},
+  {id:'reading-3-038',passage:'Hi Mark,\nThanks for inviting me camping. I can go Saturday, but I have to be home by noon on Sunday because my grandparents are visiting us that afternoon.\n— Noah',prompt:'Why must Noah return by Sunday noon?',choices:['He has school.','His grandparents are coming.','He has a soccer game.','He has to work.'],answer:1,explanation:'日曜午後に祖父母が訪ねてくるためです。'},
+  {id:'reading-3-039',passage:'Last year, Hannah was afraid to swim in deep water. She took swimming lessons during the summer and practiced every week. Now she can swim across the large pool without stopping.',prompt:'What can Hannah do now?',choices:['Teach swimming lessons.','Swim in the ocean alone.','Swim across the large pool.','Practice only in shallow water.'],answer:2,explanation:'今は大きなプールを止まらず横断できます。'},
+  {id:'reading-3-040',passage:'TRAIN INFORMATION\nThe 8:40 train to North City has been canceled. Passengers may take the 9:05 train from Platform 3. It will arrive at North City at 10:20.',prompt:'What should passengers for North City do?',choices:['Go to Platform 8.','Wait until 10:20 to leave.','Take the canceled train.','Take the 9:05 train.'],answer:3,explanation:'代わりに9:05発の電車を利用します。'},
+
+  {id:'reading-3-041',passage:'Daniel’s class wanted to reduce the amount of paper they used. They began submitting some homework online and using both sides of paper. After one month, they were using about half as much paper as before.',prompt:'What happened after the class changed its habits?',choices:['It used less paper.','It stopped doing homework.','It bought more printers.','It used twice as much paper.'],answer:0,explanation:'紙の使用量がおよそ半分になりました。'},
+  {id:'reading-3-042',passage:'Dear Kate,\nI’m going to the new history exhibition on Saturday. I planned to go in the morning, but my piano lesson was moved to 10:00. I’ll visit the exhibition after lunch instead.\n— Emily',prompt:'When will Emily visit the exhibition?',choices:['Before her piano lesson.','After lunch.','Friday morning.','At 10:00.'],answer:1,explanation:'ピアノレッスン変更のため昼食後に行きます。'},
+  {id:'reading-3-043',passage:'Nathan started working at a bakery on Saturdays. He first worked at the cash register, but this month the baker began teaching him how to make bread. Nathan hopes to own a bakery someday.',prompt:'What is Nathan learning now?',choices:['How to grow wheat.','How to manage money.','How to make bread.','How to teach customers.'],answer:2,explanation:'今月からパンの作り方を教わっています。'},
+  {id:'reading-3-044',passage:'SCHOOL FESTIVAL JOBS\nRoom decorations: 8:30–10:00\nInformation desk: 10:00–12:00\nLunch break: 12:00–13:00\nClean-up: 15:30–16:30\nStudents working at the information desk should arrive 10 minutes early.',prompt:'When should information desk students arrive?',choices:['8:30.','10:00.','10:10.','9:50.'],answer:3,explanation:'10:00開始の10分前なので9:50です。'},
+  {id:'reading-3-045',passage:'Keiko used to feel nervous when answering questions in English class. Her teacher suggested practicing with a friend after school. Keiko did this twice a week for three months, and now she speaks more confidently in class.',prompt:'What helped Keiko become more confident?',choices:['Practicing English with a friend.','Changing English teachers.','Studying alone every night.','Traveling to another country.'],answer:0,explanation:'友達との定期的な英語練習が自信につながりました。'},
+];
 export const questionBank: Question[] = [
   ...grade5VocabMc.map(q => ({
     ...q,
@@ -3138,6 +3383,33 @@ export const questionBank: Question[] = [
     mode: 'reading' as const,
     active: true,
   })),
+    ...grade3VocabMc.map(q => ({
+    ...q,
+    level: '3' as const,
+    mode: 'vocabulary-mc' as const,
+    active: true,
+  })),
+
+  ...grade3VocabJa.map(q => ({
+    ...q,
+    level: '3' as const,
+    mode: 'vocabulary-ja' as const,
+    active: true,
+  })),
+
+  ...grade3Conversation.map(q => ({
+    ...q,
+    level: '3' as const,
+    mode: 'conversation' as const,
+    active: true,
+  })),
+
+  ...grade3Reading.map(q => ({
+    ...q,
+    level: '3' as const,
+    mode: 'reading' as const,
+    active: true,
+  })),
 ];
  
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
@@ -3152,7 +3424,7 @@ for(let i=0;i<levels.length;i++){
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
  }
- if (i > 1) {
+ if (i > 2) {
   const [word,meaning,accepted]=ja[i*2];
   questionBank.push({
     id:`vocab-ja-${level}-00${i+1}`,
@@ -3176,8 +3448,8 @@ for(let i=0;i<levels.length;i++){
   });
 }
  for(let j=0;j<2;j++){
-  if (i > 1) {   const r=reading[i*2+j];   questionBank.push({     id:`reading-${level}-00${j+1}`,     level,     mode:'reading',     active:true,     passage:r[0],     prompt:r[1],     ...rotatedOptions([r[6],r[3],r[4],r[5]],i+j)   }); }
-  if (i > 1) {   const c=conversations[i*2+j];   questionBank.push({     id:`conversation-${level}-00${j+1}`,     level,     mode:'conversation',     active:true,     dialogue:c[0],     prompt:c[1],     ...rotatedOptions([c[6],c[3],c[4],c[5]],i+j+1)   }); }
+  if (i > 2) {   const r=reading[i*2+j];   questionBank.push({     id:`reading-${level}-00${j+1}`,     level,     mode:'reading',     active:true,     passage:r[0],     prompt:r[1],     ...rotatedOptions([r[6],r[3],r[4],r[5]],i+j)   }); }
+  if (i > 2) {   const c=conversations[i*2+j];   questionBank.push({     id:`conversation-${level}-00${j+1}`,     level,     mode:'conversation',     active:true,     dialogue:c[0],     prompt:c[1],     ...rotatedOptions([c[6],c[3],c[4],c[5]],i+j+1)   }); }
  }
 }
 
