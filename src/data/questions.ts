@@ -1762,6 +1762,574 @@ const grade4VocabMc: Grade4VocabMcQuestion[] = [
     answer: 0,
     explanation: 'missed：乗り遅れた。miss the bus で「バスに乗り遅れる」です。',
   },
+  type Grade4VocabJaQuestion = {
+  id: string;
+  prompt: string;
+  accepted: string[];
+  partialAnswers?: {
+    answers: string[];
+    credit: number;
+  }[];
+  explanation: string;
+};
+
+const grade4VocabJa: Grade4VocabJaQuestion[] = [
+  {
+    id: 'vocab-ja-4-001',
+    prompt: 'to arrive',
+    accepted: ['到着する', 'とうちゃくする', '着く', 'つく'],
+    partialAnswers: [
+      {
+        answers: ['到着', 'とうちゃく'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to arrive：到着する、着く',
+  },
+  {
+    id: 'vocab-ja-4-002',
+    prompt: 'to borrow',
+    accepted: ['借りる', 'かりる'],
+    partialAnswers: [
+      {
+        answers: ['借り', 'かり'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to borrow：借りる',
+  },
+  {
+    id: 'vocab-ja-4-003',
+    prompt: 'to invite',
+    accepted: ['招待する', 'しょうたいする', '誘う', 'さそう'],
+    partialAnswers: [
+      {
+        answers: ['招待', 'しょうたい'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to invite：招待する、誘う',
+  },
+  {
+    id: 'vocab-ja-4-004',
+    prompt: 'quiet',
+    accepted: ['静かな', 'しずかな', '静か', 'しずか'],
+    explanation: 'quiet：静かな、静か',
+  },
+  {
+    id: 'vocab-ja-4-005',
+    prompt: 'village',
+    accepted: ['村', 'むら'],
+    explanation: 'village：村',
+  },
+  {
+    id: 'vocab-ja-4-006',
+    prompt: 'famous',
+    accepted: ['有名な', 'ゆうめいな', '有名', 'ゆうめい'],
+    explanation: 'famous：有名な',
+  },
+  {
+    id: 'vocab-ja-4-007',
+    prompt: 'heavy',
+    accepted: ['重い', 'おもい'],
+    explanation: 'heavy：重い',
+  },
+  {
+    id: 'vocab-ja-4-008',
+    prompt: 'different',
+    accepted: [
+      '違う',
+      'ちがう',
+      '異なる',
+      'ことなる',
+      '違った',
+      'ちがった',
+      '異なった',
+      'ことなった'
+    ],
+    explanation: 'different：違う、異なる',
+  },
+  {
+    id: 'vocab-ja-4-009',
+    prompt: 'festival',
+    accepted: ['祭り', 'まつり', 'お祭り', 'おまつり', '祭典', 'さいてん'],
+    explanation: 'festival：祭り、祭典',
+  },
+  {
+    id: 'vocab-ja-4-010',
+    prompt: 'thirsty',
+    accepted: [
+      '喉が渇いた',
+      'のどがかわいた',
+      '喉がかわいた',
+      'のどが渇いた',
+      '喉が渇いている',
+      'のどがかわいている'
+    ],
+    partialAnswers: [
+      {
+        answers: [
+          '喉が渇く',
+          'のどがかわく',
+          '喉がかわく',
+          'のどが渇く'
+        ],
+        credit: 0.75,
+      },
+      {
+        answers: ['渇いた', 'かわいた', '渇く', 'かわく'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'thirsty：喉が渇いた',
+  },
+  {
+    id: 'vocab-ja-4-011',
+    prompt: 'newspaper',
+    accepted: ['新聞', 'しんぶん'],
+    explanation: 'newspaper：新聞',
+  },
+  {
+    id: 'vocab-ja-4-012',
+    prompt: 'medicine',
+    accepted: ['薬', 'くすり'],
+    explanation: 'medicine：薬',
+  },
+  {
+    id: 'vocab-ja-4-013',
+    prompt: 'language',
+    accepted: ['言語', 'げんご', '言葉', 'ことば'],
+    explanation: 'language：言語、言葉',
+  },
+  {
+    id: 'vocab-ja-4-014',
+    prompt: 'subject',
+    accepted: ['教科', 'きょうか', '科目', 'かもく'],
+    explanation: 'subject：教科、科目',
+  },
+  {
+    id: 'vocab-ja-4-015',
+    prompt: 'trip',
+    accepted: ['旅行', 'りょこう', '旅', 'たび'],
+    explanation: 'trip：旅行、旅',
+  },
+  {
+    id: 'vocab-ja-4-016',
+    prompt: 'to stay',
+    accepted: [
+      '滞在する',
+      'たいざいする',
+      '泊まる',
+      'とまる'
+    ],
+    partialAnswers: [
+      {
+        answers: ['滞在', 'たいざい'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to stay：滞在する、泊まる',
+  },
+  {
+    id: 'vocab-ja-4-017',
+    prompt: 'to carry',
+    accepted: ['運ぶ', 'はこぶ', '持ち運ぶ', 'もちはこぶ'],
+    explanation: 'to carry：運ぶ、持ち運ぶ',
+  },
+  {
+    id: 'vocab-ja-4-018',
+    prompt: 'to remember',
+    accepted: [
+      '覚える',
+      'おぼえる',
+      '思い出す',
+      'おもいだす'
+    ],
+    partialAnswers: [
+      {
+        answers: ['覚えている', 'おぼえている'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to remember：覚える、思い出す',
+  },
+  {
+    id: 'vocab-ja-4-019',
+    prompt: 'to understand',
+    accepted: [
+      '理解する',
+      'りかいする',
+      '分かる',
+      'わかる'
+    ],
+    partialAnswers: [
+      {
+        answers: ['理解', 'りかい'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to understand：理解する、分かる',
+  },
+  {
+    id: 'vocab-ja-4-020',
+    prompt: 'practice',
+    accepted: [
+      '練習する',
+      'れんしゅうする',
+      '練習',
+      'れんしゅう'
+    ],
+    explanation: 'practice：練習する、練習',
+  },
+  {
+    id: 'vocab-ja-4-021',
+    prompt: 'popular',
+    accepted: [
+      '人気のある',
+      'にんきのある',
+      '人気がある',
+      'にんきがある',
+      '人気な',
+      'にんきな'
+    ],
+    partialAnswers: [
+      {
+        answers: ['人気', 'にんき'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'popular：人気のある',
+  },
+  {
+    id: 'vocab-ja-4-022',
+    prompt: 'weekend',
+    accepted: ['週末', 'しゅうまつ'],
+    explanation: 'weekend：週末',
+  },
+  {
+    id: 'vocab-ja-4-023',
+    prompt: 'airport',
+    accepted: ['空港', 'くうこう'],
+    explanation: 'airport：空港',
+  },
+  {
+    id: 'vocab-ja-4-024',
+    prompt: 'station',
+    accepted: ['駅', 'えき'],
+    explanation: 'station：駅',
+  },
+  {
+    id: 'vocab-ja-4-025',
+    prompt: 'holiday',
+    accepted: [
+      '休日',
+      'きゅうじつ',
+      '休暇',
+      'きゅうか',
+      '祝日',
+      'しゅくじつ',
+      '休み',
+      'やすみ'
+    ],
+    explanation: 'holiday：休日、休暇、祝日',
+  },
+  {
+    id: 'vocab-ja-4-026',
+    prompt: 'straight',
+    accepted: ['まっすぐ', '真っ直ぐ'],
+    explanation: 'straight：まっすぐ',
+  },
+  {
+    id: 'vocab-ja-4-027',
+    prompt: 'usually',
+    accepted: [
+      'たいてい',
+      '大抵',
+      '普段',
+      'ふだん',
+      '普通は',
+      'ふつうは',
+      'いつもは'
+    ],
+    explanation: 'usually：たいてい、普段は',
+  },
+  {
+    id: 'vocab-ja-4-028',
+    prompt: 'sometimes',
+    accepted: ['時々', 'ときどき', '時には', 'ときには'],
+    explanation: 'sometimes：時々',
+  },
+  {
+    id: 'vocab-ja-4-029',
+    prompt: 'together',
+    accepted: ['一緒に', 'いっしょに'],
+    explanation: 'together：一緒に',
+  },
+  {
+    id: 'vocab-ja-4-030',
+    prompt: 'again',
+    accepted: [
+      'もう一度',
+      'もういちど',
+      '再び',
+      'ふたたび',
+      'また'
+    ],
+    explanation: 'again：もう一度、再び、また',
+  },
+  {
+    id: 'vocab-ja-4-031',
+    prompt: 'to look for',
+    accepted: ['探す', 'さがす', '捜す'],
+    partialAnswers: [
+      {
+        answers: ['探している', 'さがしている'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to look for：探す',
+  },
+  {
+    id: 'vocab-ja-4-032',
+    prompt: 'to look after',
+    accepted: [
+      '世話をする',
+      'せわをする',
+      '面倒を見る',
+      'めんどうをみる',
+      '面倒をみる'
+    ],
+    partialAnswers: [
+      {
+        answers: [
+          '世話',
+          'せわ',
+          '面倒を見ること',
+          'めんどうをみること'
+        ],
+        credit: 0.75,
+      },
+      {
+        answers: ['面倒', 'めんどう'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'to look after：〜の世話をする、面倒を見る',
+  },
+  {
+    id: 'vocab-ja-4-033',
+    prompt: 'to get up',
+    accepted: ['起きる', 'おきる', '起床する', 'きしょうする', '起き上がる', 'おきあがる'],
+    partialAnswers: [
+      {
+        answers: ['起床', 'きしょう'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to get up：起きる、起床する',
+  },
+  {
+    id: 'vocab-ja-4-034',
+    prompt: 'to go out',
+    accepted: [
+      '外出する',
+      'がいしゅつする',
+      '出かける',
+      'でかける',
+      '出掛ける'
+    ],
+    partialAnswers: [
+      {
+        answers: ['外出', 'がいしゅつ'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to go out：外出する、出かける',
+  },
+  {
+    id: 'vocab-ja-4-035',
+    prompt: 'to wait for',
+    accepted: [
+      '待つ',
+      'まつ',
+      'を待つ',
+      'をまつ'
+    ],
+    explanation: 'to wait for：〜を待つ',
+  },
+  {
+    id: 'vocab-ja-4-036',
+    prompt: 'to be good at',
+    accepted: [
+      '得意である',
+      'とくいである',
+      '得意だ',
+      'とくいだ',
+      '上手である',
+      'じょうずである',
+      '上手だ',
+      'じょうずだ'
+    ],
+    partialAnswers: [
+      {
+        answers: ['得意', 'とくい', '上手', 'じょうず'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to be good at：〜が得意である、上手である',
+  },
+  {
+    id: 'vocab-ja-4-037',
+    prompt: 'to be interested in',
+    accepted: [
+      '興味がある',
+      'きょうみがある',
+      '興味を持っている',
+      'きょうみをもっている'
+    ],
+    partialAnswers: [
+      {
+        answers: ['興味', 'きょうみ'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'to be interested in：〜に興味がある',
+  },
+  {
+    id: 'vocab-ja-4-038',
+    prompt: 'right now',
+    accepted: [
+      '今',
+      'いま',
+      '今すぐ',
+      'いますぐ',
+      'たった今',
+      'たったいま',
+      '今現在',
+      'いまげんざい'
+    ],
+    explanation: 'right now：今、今すぐ',
+  },
+  {
+    id: 'vocab-ja-4-039',
+    prompt: 'a lot of',
+    accepted: [
+      'たくさんの',
+      '沢山の',
+      '多くの',
+      'おおくの'
+    ],
+    partialAnswers: [
+      {
+        answers: ['たくさん', '沢山', '多く', 'おおく'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'a lot of：たくさんの、多くの',
+  },
+  {
+    id: 'vocab-ja-4-040',
+    prompt: 'have to',
+    accepted: [
+      'しなければならない',
+      'する必要がある',
+      'するひつようがある',
+      'しなくてはいけない',
+      'しないといけない'
+    ],
+    partialAnswers: [
+      {
+        answers: [
+          '必要がある',
+          'ひつようがある',
+          'しなければ',
+          'しなくてはいけない'
+        ],
+        credit: 0.75,
+      },
+      {
+        answers: ['必要', 'ひつよう'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'have to：〜しなければならない、〜する必要がある',
+  },
+  {
+    id: 'vocab-ja-4-041',
+    prompt: 'to be late for',
+    accepted: [
+      '遅刻する',
+      'ちこくする',
+      'に遅れる',
+      'におくれる',
+      '遅れる',
+      'おくれる'
+    ],
+    partialAnswers: [
+      {
+        answers: ['遅刻', 'ちこく'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'to be late for：〜に遅れる、遅刻する',
+  },
+  {
+    id: 'vocab-ja-4-042',
+    prompt: 'to take a picture',
+    accepted: [
+      '写真を撮る',
+      'しゃしんをとる',
+      '写真をとる'
+    ],
+    partialAnswers: [
+      {
+        answers: ['写真', 'しゃしん', '写真を撮ること', 'しゃしんをとること'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'to take a picture：写真を撮る',
+  },
+  {
+    id: 'vocab-ja-4-043',
+    prompt: 'to take a shower',
+    accepted: [
+      'シャワーを浴びる',
+      'シャワーをあびる'
+    ],
+    partialAnswers: [
+      {
+        answers: ['シャワー', 'シャワーを浴びること', 'シャワーをあびること'],
+        credit: 0.5,
+      },
+    ],
+    explanation: 'to take a shower：シャワーを浴びる',
+  },
+  {
+    id: 'vocab-ja-4-044',
+    prompt: 'on the way',
+    accepted: [
+      '途中で',
+      'とちゅうで',
+      '途中に',
+      'とちゅうに',
+      '道の途中で',
+      'みちのとちゅうで'
+    ],
+    partialAnswers: [
+      {
+        answers: ['途中', 'とちゅう'],
+        credit: 0.75,
+      },
+    ],
+    explanation: 'on the way：途中で、道の途中で',
+  },
+  {
+    id: 'vocab-ja-4-045',
+    prompt: 'for example',
+    accepted: ['例えば', 'たとえば'],
+    explanation: 'for example：例えば',
+  },
+];
 ];
 export const questionBank: Question[] = [
   ...grade5VocabMc.map(q => ({
@@ -1799,6 +2367,19 @@ export const questionBank: Question[] = [
     mode: 'vocabulary-mc' as const,
     active: true,
   })),
+    ...grade4VocabMc.map(q => ({
+    ...q,
+    level: '4' as const,
+    mode: 'vocabulary-mc' as const,
+    active: true,
+  })),
+
+  ...grade4VocabJa.map(q => ({
+    ...q,
+    level: '4' as const,
+    mode: 'vocabulary-ja' as const,
+    active: true,
+  })),
 ];
  
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
@@ -1813,7 +2394,7 @@ for(let i=0;i<levels.length;i++){
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
  }
- if (i > 0) {
+ if (i > 1) {
   const [word,meaning,accepted]=ja[i*2];
   questionBank.push({
     id:`vocab-ja-${level}-00${i+1}`,
