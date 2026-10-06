@@ -4719,7 +4719,706 @@ const gradePre2Conversation: GradePre2ConversationQuestion[] = [
     explanation: 'パソコンを学びたい相手に無料講座への申し込みを勧めています。',
   },
 ];
+type Grade2VocabMcQuestion = {
+  id: string;
+  prompt: string;
+  choices: [string, string, string, string];
+  answer: number;
+  explanation: string;
+};
 
+const grade2VocabMc: Grade2VocabMcQuestion[] = [
+  {
+    id: 'vocab-mc-2-001',
+    prompt: 'The city plans to ( ____ ) the old sports center so that it can be used safely for many more years.',
+    choices: ['renovate', 'hesitate', 'translate', 'separate'],
+    answer: 0,
+    explanation: 'renovate = 改修する。古い施設を安全に使えるよう改修する、という文脈です。',
+  },
+  {
+    id: 'vocab-mc-2-002',
+    prompt: 'The company decided to ( ____ ) more money to employee training after several workers requested additional support.',
+    choices: ['interrupt', 'allocate', 'collapse', 'persuade'],
+    answer: 1,
+    explanation: 'allocate = 割り当てる。資金などを特定の目的に配分するという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-003',
+    prompt: 'Scientists are trying to ( ____ ) why the number of insects in the area has decreased so rapidly.',
+    choices: ['celebrate', 'recover', 'determine', 'exchange'],
+    answer: 2,
+    explanation: 'determine = 突き止める、判断する。原因を調査して明らかにする文脈です。',
+  },
+  {
+    id: 'vocab-mc-2-004',
+    prompt: 'Although the two proposals seem similar, there is a ( ____ ) difference in how much each one will cost.',
+    choices: ['temporary', 'curious', 'frequent', 'significant'],
+    answer: 3,
+    explanation: 'significant = 重要な、大きな。費用面で無視できない違いがあるという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-005',
+    prompt: 'The teacher tried to ( ____ ) the importance of checking information before sharing it online.',
+    choices: ['emphasize', 'withdraw', 'capture', 'consume'],
+    answer: 0,
+    explanation: 'emphasize = 強調する。重要性を強く伝えるという文脈です。',
+  },
+  {
+    id: 'vocab-mc-2-006',
+    prompt: 'Because demand for the product has increased, the factory will ( ____ ) its production next month.',
+    choices: ['overlook', 'expand', 'preserve', 'oppose'],
+    answer: 1,
+    explanation: 'expand = 拡大する。需要増加に対応して生産を増やすという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-007',
+    prompt: 'Before making a final decision, the committee will carefully ( ____ ) the advantages and disadvantages of each plan.',
+    choices: ['rescue', 'announce', 'evaluate', 'pretend'],
+    answer: 2,
+    explanation: 'evaluate = 評価する。複数の案を検討して価値を判断するという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-008',
+    prompt: 'The museum hopes the new exhibition will ( ____ ) visitors to learn more about local history.',
+    choices: ['forbid', 'replace', 'surround', 'inspire'],
+    answer: 3,
+    explanation: 'inspire = 刺激する、奮い立たせる。訪問者にもっと学びたいと思わせる意味です。',
+  },
+  {
+    id: 'vocab-mc-2-009',
+    prompt: 'The organization depends on volunteers to ( ____ ) food and clothing to families throughout the region.',
+    choices: ['distribute', 'interrupt', 'hesitate', 'estimate'],
+    answer: 0,
+    explanation: 'distribute = 配布する。食料や衣服を各家庭へ配るという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-010',
+    prompt: 'The doctor explained that regular exercise can ( ____ ) to better physical and mental health.',
+    choices: ['object', 'contribute', 'declare', 'wander'],
+    answer: 1,
+    explanation: 'contribute to = ～に貢献する、～につながる。',
+  },
+
+  {
+    id: 'vocab-mc-2-011',
+    prompt: 'The new safety rules are intended to ( ____ ) accidents rather than simply respond to them after they happen.',
+    choices: ['convince', 'observe', 'prevent', 'recover'],
+    answer: 2,
+    explanation: 'prevent = 防ぐ。事故が起きる前に防止するという対比です。',
+  },
+  {
+    id: 'vocab-mc-2-012',
+    prompt: 'The researcher refused to publish the results until she had enough evidence to ( ____ ) her conclusion.',
+    choices: ['interrupt', 'destroy', 'recognize', 'support'],
+    answer: 3,
+    explanation: 'support = 裏付ける。証拠が結論を支持するという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-013',
+    prompt: 'The town introduced several measures to ( ____ ) the amount of traffic in the city center.',
+    choices: ['reduce', 'locate', 'maintain', 'represent'],
+    answer: 0,
+    explanation: 'reduce = 減らす。交通量を減少させる施策という文脈です。',
+  },
+  {
+    id: 'vocab-mc-2-014',
+    prompt: 'Maya was initially ( ____ ) to speak in front of such a large audience, but she eventually agreed.',
+    choices: ['accurate', 'reluctant', 'sufficient', 'obvious'],
+    answer: 1,
+    explanation: 'reluctant = 気が進まない。最初は嫌だったが最終的には同意した、という流れです。',
+  },
+  {
+    id: 'vocab-mc-2-015',
+    prompt: 'Access to clean water remains a ( ____ ) issue in some parts of the world.',
+    choices: ['minor', 'casual', 'critical', 'ordinary'],
+    answer: 2,
+    explanation: 'critical = 極めて重要な、重大な。',
+  },
+  {
+    id: 'vocab-mc-2-016',
+    prompt: 'The instructions were so ( ____ ) that several people interpreted them in different ways.',
+    choices: ['efficient', 'permanent', 'accurate', 'ambiguous'],
+    answer: 3,
+    explanation: 'ambiguous = 曖昧な。複数の解釈が可能だったことがヒントです。',
+  },
+  {
+    id: 'vocab-mc-2-017',
+    prompt: 'It is difficult to ( ____ ) exactly how many people will attend the outdoor event.',
+    choices: ['estimate', 'prohibit', 'recover', 'combine'],
+    answer: 0,
+    explanation: 'estimate = 見積もる、推定する。',
+  },
+  {
+    id: 'vocab-mc-2-018',
+    prompt: 'The organization is trying to raise public ( ____ ) of the problems caused by food waste.',
+    choices: ['permission', 'awareness', 'departure', 'conclusion'],
+    answer: 1,
+    explanation: 'awareness = 認識、意識。raise awareness of ～ = ～への認識を高める。',
+  },
+  {
+    id: 'vocab-mc-2-019',
+    prompt: 'The new bridge has had a positive ( ____ ) on local businesses by making the area easier to reach.',
+    choices: ['failure', 'permission', 'impact', 'occasion'],
+    answer: 2,
+    explanation: 'impact = 影響。have an impact on ～ = ～に影響を与える。',
+  },
+  {
+    id: 'vocab-mc-2-020',
+    prompt: 'The university offers financial ( ____ ) to students who cannot afford all of their educational expenses.',
+    choices: ['behavior', 'contrast', 'argument', 'assistance'],
+    answer: 3,
+    explanation: 'assistance = 援助。financial assistance = 経済的援助。',
+  },
+
+  {
+    id: 'vocab-mc-2-021',
+    prompt: 'The company is looking for a more ( ____ ) way to transport its products while using less fuel.',
+    choices: ['efficient', 'anxious', 'severe', 'distant'],
+    answer: 0,
+    explanation: 'efficient = 効率的な。より少ない燃料で輸送するという文脈です。',
+  },
+  {
+    id: 'vocab-mc-2-022',
+    prompt: 'Some experts argue that the current system is no longer ( ____ ) and needs to be replaced.',
+    choices: ['curious', 'adequate', 'generous', 'rare'],
+    answer: 1,
+    explanation: 'adequate = 十分な、適切な。現行制度では不十分だという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-023',
+    prompt: 'The scientist said there was no ( ____ ) evidence that the new treatment was more effective.',
+    choices: ['annual', 'rural', 'sufficient', 'casual'],
+    answer: 2,
+    explanation: 'sufficient = 十分な。結論を出せるほど十分な証拠がないという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-024',
+    prompt: 'It is ( ____ ) that the outdoor concert will be canceled if the storm continues.',
+    choices: ['ancient', 'equal', 'minor', 'likely'],
+    answer: 3,
+    explanation: 'likely = ～しそうな、可能性が高い。',
+  },
+  {
+    id: 'vocab-mc-2-025',
+    prompt: 'The rapid growth of the town created an increased ( ____ ) for housing and public transportation.',
+    choices: ['demand', 'permission', 'surface', 'tradition'],
+    answer: 0,
+    explanation: 'demand = 需要。人口などの増加により住宅や交通への需要が高まるという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-026',
+    prompt: 'One major ( ____ ) of studying abroad is the opportunity to experience another culture directly.',
+    choices: ['disaster', 'benefit', 'complaint', 'threat'],
+    answer: 1,
+    explanation: 'benefit = 利点、恩恵。',
+  },
+  {
+    id: 'vocab-mc-2-027',
+    prompt: 'The government introduced new environmental ( ____ ) that factories are required to follow.',
+    choices: ['memories', 'rumors', 'regulations', 'ceremonies'],
+    answer: 2,
+    explanation: 'regulations = 規則、規制。工場が従う必要のある環境規制です。',
+  },
+  {
+    id: 'vocab-mc-2-028',
+    prompt: 'The professor questioned the ( ____ ) that technology always improves people’s quality of life.',
+    choices: ['destination', 'permission', 'variety', 'assumption'],
+    answer: 3,
+    explanation: 'assumption = 前提、思い込み。「技術は常に生活を改善する」という前提を疑ったという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-029',
+    prompt: 'The number of visitors has increased ( ____ ) since the museum began offering free admission on Fridays.',
+    choices: ['considerably', 'rarely', 'barely', 'privately'],
+    answer: 0,
+    explanation: 'considerably = かなり、大幅に。',
+  },
+  {
+    id: 'vocab-mc-2-030',
+    prompt: 'The two products look similar, but they function ( ____ ) differently under extreme conditions.',
+    choices: ['politely', 'slightly', 'recently', 'secretly'],
+    answer: 1,
+    explanation: 'slightly = わずかに。程度の小さい違いを表します。',
+  },
+
+  {
+    id: 'vocab-mc-2-031',
+    prompt: 'The school decided to ( ____ ) the new rule after many students and teachers complained about it.',
+    choices: ['take after', 'come across', 'do away with', 'look into'],
+    answer: 2,
+    explanation: 'do away with = 廃止する。',
+  },
+  {
+    id: 'vocab-mc-2-032',
+    prompt: 'Police are still trying to ( ____ ) what caused the power failure across the neighborhood.',
+    choices: ['bring up', 'turn down', 'give away', 'figure out'],
+    answer: 3,
+    explanation: 'figure out = 理解する、解明する。',
+  },
+  {
+    id: 'vocab-mc-2-033',
+    prompt: 'The manager promised to ( ____ ) the customer’s complaint and contact her by Friday.',
+    choices: ['look into', 'run out of', 'take after', 'break down'],
+    answer: 0,
+    explanation: 'look into = 調査する。苦情について詳しく調べるという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-034',
+    prompt: 'We had to ( ____ ) the meeting until Monday because several members could not attend.',
+    choices: ['carry out', 'put off', 'bring about', 'turn over'],
+    answer: 1,
+    explanation: 'put off = 延期する。',
+  },
+  {
+    id: 'vocab-mc-2-035',
+    prompt: 'The charity plans to ( ____ ) a survey to learn what kinds of support local families need.',
+    choices: ['look after', 'give in', 'carry out', 'take apart'],
+    answer: 2,
+    explanation: 'carry out = 実施する。carry out a survey = 調査を実施する。',
+  },
+  {
+    id: 'vocab-mc-2-036',
+    prompt: 'The discovery of a cheaper material could ( ____ ) major changes in the industry.',
+    choices: ['look up', 'give off', 'run into', 'bring about'],
+    answer: 3,
+    explanation: 'bring about = 引き起こす、もたらす。',
+  },
+  {
+    id: 'vocab-mc-2-037',
+    prompt: 'We have almost ( ____ ) printer paper, so someone needs to order more today.',
+    choices: ['run out of', 'look forward to', 'put up with', 'come up with'],
+    answer: 0,
+    explanation: 'run out of = ～を使い果たす。',
+  },
+  {
+    id: 'vocab-mc-2-038',
+    prompt: 'The research team finally ( ____ ) a solution after discussing the problem for several weeks.',
+    choices: ['got rid of', 'came up with', 'looked down on', 'fell behind'],
+    answer: 1,
+    explanation: 'come up with = 考え出す。solution とよく使われます。',
+  },
+  {
+    id: 'vocab-mc-2-039',
+    prompt: 'Because she missed several classes, Hana had to work hard to ( ____ ) the rest of the group.',
+    choices: ['turn down', 'give away', 'catch up with', 'take over'],
+    answer: 2,
+    explanation: 'catch up with = ～に追いつく。',
+  },
+  {
+    id: 'vocab-mc-2-040',
+    prompt: 'The new recycling program has not ( ____ ) expectations yet, but officials believe it will improve.',
+    choices: ['taken care of', 'made up for', 'come down with', 'lived up to'],
+    answer: 3,
+    explanation: 'live up to expectations = 期待に応える。',
+  },
+
+  {
+    id: 'vocab-mc-2-041',
+    prompt: '( ____ ), the new system costs more at first, but it should save money over several years.',
+    choices: ['In the long run', 'By accident', 'At random', 'For instance'],
+    answer: 0,
+    explanation: 'in the long run = 長い目で見れば、長期的には。',
+  },
+  {
+    id: 'vocab-mc-2-042',
+    prompt: 'The outdoor event will continue ( ____ ) the weather becomes dangerous.',
+    choices: ['in addition to', 'as long as', 'in spite of', 'instead of'],
+    answer: 1,
+    explanation: 'as long as = ～である限り。危険な天候にならない限り続けるという意味です。',
+  },
+  {
+    id: 'vocab-mc-2-043',
+    prompt: 'The company changed its packaging ( ____ ) reduce the amount of plastic it uses.',
+    choices: ['in contrast to', 'regardless of', 'in order to', 'on behalf of'],
+    answer: 2,
+    explanation: 'in order to = ～するために。目的を表します。',
+  },
+  {
+    id: 'vocab-mc-2-044',
+    prompt: 'The concert was successful ( ____ ) several technical problems at the beginning.',
+    choices: ['because of', 'according to', 'as a result of', 'in spite of'],
+    answer: 3,
+    explanation: 'in spite of = ～にもかかわらず。',
+  },
+  {
+    id: 'vocab-mc-2-045',
+    prompt: 'Many employees supported the proposal. ( ____ ), a few were concerned about its cost.',
+    choices: ['On the other hand', 'As a result', 'For this reason', 'In addition'],
+    answer: 0,
+    explanation: 'on the other hand = 一方で。賛成多数と一部の懸念を対比しています。',
+  },
+];
+type Grade2VocabJaQuestion = {
+  id: string;
+  prompt: string;
+  accepted: string[];
+  partialAnswers?: {
+    answers: string[];
+    credit: number;
+  }[];
+  explanation: string;
+};
+
+const grade2VocabJa: Grade2VocabJaQuestion[] = [
+  {
+    id: 'vocab-ja-2-001',
+    prompt: 'allocate',
+    accepted: ['割り当てる', 'わりあてる', '配分する', 'はいぶんする'],
+    partialAnswers: [
+      { answers: ['割り当て', 'わりあて', '配分', 'はいぶん'], credit: 0.75 },
+    ],
+    explanation: 'allocate = 割り当てる、配分する',
+  },
+  {
+    id: 'vocab-ja-2-002',
+    prompt: 'determine',
+    accepted: ['決定する', 'けっていする', '決める', 'きめる', '突き止める', 'つきとめる', '判断する', 'はんだんする'],
+    partialAnswers: [
+      { answers: ['決定', 'けってい', '判断', 'はんだん'], credit: 0.75 },
+    ],
+    explanation: 'determine = 決定する、判断する、突き止める',
+  },
+  {
+    id: 'vocab-ja-2-003',
+    prompt: 'emphasize',
+    accepted: ['強調する', 'きょうちょうする'],
+    partialAnswers: [
+      { answers: ['強調', 'きょうちょう'], credit: 0.75 },
+    ],
+    explanation: 'emphasize = 強調する',
+  },
+  {
+    id: 'vocab-ja-2-004',
+    prompt: 'evaluate',
+    accepted: ['評価する', 'ひょうかする', '査定する', 'さていする'],
+    partialAnswers: [
+      { answers: ['評価', 'ひょうか', '査定', 'さてい'], credit: 0.75 },
+    ],
+    explanation: 'evaluate = 評価する',
+  },
+  {
+    id: 'vocab-ja-2-005',
+    prompt: 'inspire',
+    accepted: ['刺激する', 'しげきする', '奮い立たせる', 'ふるいたたせる', '鼓舞する', 'こぶする'],
+    partialAnswers: [
+      { answers: ['刺激', 'しげき', '鼓舞', 'こぶ'], credit: 0.75 },
+    ],
+    explanation: 'inspire = 刺激する、奮い立たせる',
+  },
+  {
+    id: 'vocab-ja-2-006',
+    prompt: 'distribute',
+    accepted: ['配布する', 'はいふする', '分配する', 'ぶんぱいする', '配る', 'くばる'],
+    partialAnswers: [
+      { answers: ['配布', 'はいふ', '分配', 'ぶんぱい'], credit: 0.75 },
+    ],
+    explanation: 'distribute = 配布する、分配する',
+  },
+  {
+    id: 'vocab-ja-2-007',
+    prompt: 'contribute',
+    accepted: ['貢献する', 'こうけんする', '寄与する', 'きよする'],
+    partialAnswers: [
+      { answers: ['貢献', 'こうけん', '寄与', 'きよ'], credit: 0.75 },
+    ],
+    explanation: 'contribute = 貢献する、寄与する',
+  },
+  {
+    id: 'vocab-ja-2-008',
+    prompt: 'prevent',
+    accepted: ['防ぐ', 'ふせぐ', '予防する', 'よぼうする', '防止する', 'ぼうしする'],
+    partialAnswers: [
+      { answers: ['予防', 'よぼう', '防止', 'ぼうし'], credit: 0.75 },
+    ],
+    explanation: 'prevent = 防ぐ、予防する',
+  },
+  {
+    id: 'vocab-ja-2-009',
+    prompt: 'maintain',
+    accepted: ['維持する', 'いじする', '保つ', 'たもつ'],
+    partialAnswers: [
+      { answers: ['維持', 'いじ'], credit: 0.75 },
+    ],
+    explanation: 'maintain = 維持する、保つ',
+  },
+  {
+    id: 'vocab-ja-2-010',
+    prompt: 'estimate',
+    accepted: ['推定する', 'すいていする', '見積もる', 'みつもる'],
+    partialAnswers: [
+      { answers: ['推定', 'すいてい', '見積もり', 'みつもり'], credit: 0.75 },
+    ],
+    explanation: 'estimate = 推定する、見積もる',
+  },
+
+  {
+    id: 'vocab-ja-2-011',
+    prompt: 'significant',
+    accepted: ['重要な', 'じゅうような', '重大な', 'じゅうだいな', 'かなりの', '大きな', 'おおきな'],
+    partialAnswers: [
+      { answers: ['重要', 'じゅうよう', '重大', 'じゅうだい'], credit: 0.75 },
+    ],
+    explanation: 'significant = 重要な、重大な、かなりの',
+  },
+  {
+    id: 'vocab-ja-2-012',
+    prompt: 'reluctant',
+    accepted: ['気が進まない', 'きがすすまない', '嫌がって', 'いやがって', 'しぶしぶの', '乗り気でない', 'のりきでない'],
+    partialAnswers: [
+      { answers: ['気が進まないこと', 'きがすすまないこと'], credit: 0.75 },
+    ],
+    explanation: 'reluctant = 気が進まない、乗り気でない',
+  },
+  {
+    id: 'vocab-ja-2-013',
+    prompt: 'critical',
+    accepted: ['重大な', 'じゅうだいな', '極めて重要な', 'きわめてじゅうような', '批判的な', 'ひはんてきな'],
+    partialAnswers: [
+      { answers: ['重大', 'じゅうだい', '重要な', 'じゅうような'], credit: 0.75 },
+    ],
+    explanation: 'critical = 重大な、極めて重要な、批判的な',
+  },
+  {
+    id: 'vocab-ja-2-014',
+    prompt: 'ambiguous',
+    accepted: ['曖昧な', 'あいまいな', '不明確な', 'ふめいかくな'],
+    partialAnswers: [
+      { answers: ['曖昧', 'あいまい', '不明確', 'ふめいかく'], credit: 0.75 },
+    ],
+    explanation: 'ambiguous = 曖昧な、不明確な',
+  },
+  {
+    id: 'vocab-ja-2-015',
+    prompt: 'adequate',
+    accepted: ['十分な', 'じゅうぶんな', '適切な', 'てきせつな', '足りる', 'たりる'],
+    partialAnswers: [
+      { answers: ['十分', 'じゅうぶん', '適切', 'てきせつ'], credit: 0.75 },
+    ],
+    explanation: 'adequate = 十分な、適切な',
+  },
+  {
+    id: 'vocab-ja-2-016',
+    prompt: 'sufficient',
+    accepted: ['十分な', 'じゅうぶんな', '足りる', 'たりる'],
+    partialAnswers: [
+      { answers: ['十分', 'じゅうぶん'], credit: 0.75 },
+    ],
+    explanation: 'sufficient = 十分な',
+  },
+  {
+    id: 'vocab-ja-2-017',
+    prompt: 'efficient',
+    accepted: ['効率的な', 'こうりつてきな', '効率の良い', 'こうりつのよい', '能率的な', 'のうりつてきな'],
+    partialAnswers: [
+      { answers: ['効率的', 'こうりつてき', '効率', 'こうりつ'], credit: 0.75 },
+    ],
+    explanation: 'efficient = 効率的な',
+  },
+  {
+    id: 'vocab-ja-2-018',
+    prompt: 'likely',
+    accepted: ['ありそうな', '可能性が高い', 'かのうせいがたかい', 'しそうな'],
+    partialAnswers: [
+      { answers: ['可能性', 'かのうせい'], credit: 0.5 },
+    ],
+    explanation: 'likely = ありそうな、可能性が高い',
+  },
+  {
+    id: 'vocab-ja-2-019',
+    prompt: 'considerable',
+    accepted: ['かなりの', '相当な', 'そうとうな', '大きな', 'おおきな'],
+    partialAnswers: [
+      { answers: ['相当', 'そうとう'], credit: 0.75 },
+    ],
+    explanation: 'considerable = かなりの、相当な',
+  },
+  {
+    id: 'vocab-ja-2-020',
+    prompt: 'temporary',
+    accepted: ['一時的な', 'いちじてきな', '臨時の', 'りんじの', '仮の', 'かりの'],
+    partialAnswers: [
+      { answers: ['一時的', 'いちじてき', '臨時', 'りんじ'], credit: 0.75 },
+    ],
+    explanation: 'temporary = 一時的な、臨時の',
+  },
+
+  {
+    id: 'vocab-ja-2-021',
+    prompt: 'awareness',
+    accepted: ['認識', 'にんしき', '意識', 'いしき', '自覚', 'じかく'],
+    explanation: 'awareness = 認識、意識、自覚',
+  },
+  {
+    id: 'vocab-ja-2-022',
+    prompt: 'impact',
+    accepted: ['影響', 'えいきょう', '衝撃', 'しょうげき'],
+    explanation: 'impact = 影響、衝撃',
+  },
+  {
+    id: 'vocab-ja-2-023',
+    prompt: 'assistance',
+    accepted: ['援助', 'えんじょ', '支援', 'しえん', '手助け', 'てだすけ'],
+    explanation: 'assistance = 援助、支援',
+  },
+  {
+    id: 'vocab-ja-2-024',
+    prompt: 'demand',
+    accepted: ['需要', 'じゅよう', '要求', 'ようきゅう', '要求する', 'ようきゅうする'],
+    explanation: 'demand = 需要、要求、要求する',
+  },
+  {
+    id: 'vocab-ja-2-025',
+    prompt: 'benefit',
+    accepted: ['利益', 'りえき', '利点', 'りてん', '恩恵', 'おんけい', '利益を得る', 'りえきをえる'],
+    explanation: 'benefit = 利益、利点、恩恵',
+  },
+  {
+    id: 'vocab-ja-2-026',
+    prompt: 'regulation',
+    accepted: ['規制', 'きせい', '規則', 'きそく', '規定', 'きてい'],
+    explanation: 'regulation = 規制、規則',
+  },
+  {
+    id: 'vocab-ja-2-027',
+    prompt: 'assumption',
+    accepted: ['仮定', 'かてい', '前提', 'ぜんてい', '思い込み', 'おもいこみ'],
+    explanation: 'assumption = 仮定、前提、思い込み',
+  },
+  {
+    id: 'vocab-ja-2-028',
+    prompt: 'evidence',
+    accepted: ['証拠', 'しょうこ', '根拠', 'こんきょ'],
+    explanation: 'evidence = 証拠、根拠',
+  },
+  {
+    id: 'vocab-ja-2-029',
+    prompt: 'consequence',
+    accepted: ['結果', 'けっか', '影響', 'えいきょう', '成り行き', 'なりゆき'],
+    explanation: 'consequence = 結果、影響',
+  },
+  {
+    id: 'vocab-ja-2-030',
+    prompt: 'circumstance',
+    accepted: ['状況', 'じょうきょう', '事情', 'じじょう', '境遇', 'きょうぐう'],
+    explanation: 'circumstance = 状況、事情',
+  },
+
+  {
+    id: 'vocab-ja-2-031',
+    prompt: 'look into',
+    accepted: ['調査する', 'ちょうさする', '調べる', 'しらべる'],
+    partialAnswers: [
+      { answers: ['調査', 'ちょうさ'], credit: 0.75 },
+    ],
+    explanation: 'look into = 調査する、調べる',
+  },
+  {
+    id: 'vocab-ja-2-032',
+    prompt: 'put off',
+    accepted: ['延期する', 'えんきする', '先延ばしにする', 'さきのばしにする', '後回しにする', 'あとまわしにする'],
+    partialAnswers: [
+      { answers: ['延期', 'えんき', '先延ばし', 'さきのばし'], credit: 0.75 },
+    ],
+    explanation: 'put off = 延期する、先延ばしにする',
+  },
+  {
+    id: 'vocab-ja-2-033',
+    prompt: 'carry out',
+    accepted: ['実行する', 'じっこうする', '実施する', 'じっしする', '遂行する', 'すいこうする'],
+    partialAnswers: [
+      { answers: ['実行', 'じっこう', '実施', 'じっし'], credit: 0.75 },
+    ],
+    explanation: 'carry out = 実行する、実施する',
+  },
+  {
+    id: 'vocab-ja-2-034',
+    prompt: 'bring about',
+    accepted: ['引き起こす', 'ひきおこす', 'もたらす', '生じさせる', 'しょうじさせる'],
+    explanation: 'bring about = 引き起こす、もたらす',
+  },
+  {
+    id: 'vocab-ja-2-035',
+    prompt: 'run out of',
+    accepted: ['使い果たす', 'つかいはたす', 'を切らす', 'をきらす', 'なくなる'],
+    partialAnswers: [
+      { answers: ['使い切る', 'つかいきる'], credit: 0.75 },
+    ],
+    explanation: 'run out of = ～を使い果たす、～を切らす',
+  },
+  {
+    id: 'vocab-ja-2-036',
+    prompt: 'come up with',
+    accepted: ['思いつく', 'おもいつく', '考え出す', 'かんがえだす', '考えつく', 'かんがえつく'],
+    explanation: 'come up with = 思いつく、考え出す',
+  },
+  {
+    id: 'vocab-ja-2-037',
+    prompt: 'catch up with',
+    accepted: ['追いつく', 'おいつく', 'に追いつく', 'においつく'],
+    explanation: 'catch up with = ～に追いつく',
+  },
+  {
+    id: 'vocab-ja-2-038',
+    prompt: 'live up to',
+    accepted: ['期待に応える', 'きたいにこたえる', 'に応える', 'にこたえる', '期待どおりである', 'きたいどおりである'],
+    partialAnswers: [
+      { answers: ['応える', 'こたえる'], credit: 0.5 },
+    ],
+    explanation: 'live up to = ～に応える、期待どおりである',
+  },
+  {
+    id: 'vocab-ja-2-039',
+    prompt: 'do away with',
+    accepted: ['廃止する', 'はいしする', 'なくす', '取り除く', 'とりのぞく'],
+    partialAnswers: [
+      { answers: ['廃止', 'はいし'], credit: 0.75 },
+    ],
+    explanation: 'do away with = 廃止する、取り除く',
+  },
+  {
+    id: 'vocab-ja-2-040',
+    prompt: 'figure out',
+    accepted: ['理解する', 'りかいする', '解明する', 'かいめいする', '分かる', 'わかる', '解決する', 'かいけつする'],
+    partialAnswers: [
+      { answers: ['理解', 'りかい', '解明', 'かいめい'], credit: 0.75 },
+    ],
+    explanation: 'figure out = 理解する、解明する',
+  },
+
+  {
+    id: 'vocab-ja-2-041',
+    prompt: 'in the long run',
+    accepted: ['長い目で見れば', 'ながいめでみれば', '長期的には', 'ちょうきてきには', '結局は', 'けっきょくは'],
+    explanation: 'in the long run = 長い目で見れば、長期的には',
+  },
+  {
+    id: 'vocab-ja-2-042',
+    prompt: 'as long as',
+    accepted: ['する限り', 'するかぎり', 'である限り', 'であるかぎり', 'さえすれば'],
+    partialAnswers: [
+      { answers: ['限り', 'かぎり'], credit: 0.5 },
+    ],
+    explanation: 'as long as = ～する限り、～さえすれば',
+  },
+  {
+    id: 'vocab-ja-2-043',
+    prompt: 'in spite of',
+    accepted: ['にもかかわらず', 'に関わらず', 'にかかわらず', 'なのに'],
+    explanation: 'in spite of = ～にもかかわらず',
+  },
+  {
+    id: 'vocab-ja-2-044',
+    prompt: 'on the other hand',
+    accepted: ['一方で', 'いっぽうで', 'その一方で', 'そのいっぽうで', '他方では', 'たほうでは'],
+    explanation: 'on the other hand = 一方で、他方では',
+  },
+  {
+    id: 'vocab-ja-2-045',
+    prompt: 'regardless of',
+    accepted: ['に関係なく', 'にかんけいなく', 'にかかわらず', 'を問わず', 'をとわず'],
+    explanation: 'regardless of = ～に関係なく、～にかかわらず',
+  },
+];
 export const questionBank: Question[] = [
   ...grade5VocabMc.map(q => ({
     ...q,
@@ -4828,6 +5527,20 @@ export const questionBank: Question[] = [
   mode: 'reading' as const,
   active: true,
 })),
+...grade2VocabMc.map(q => ({
+  ...q,
+  level: '2' as const,
+  mode: 'vocabulary-mc' as const,
+  active: true,
+})),
+
+...grade2VocabJa.map(q => ({
+  ...q,
+  level: '2' as const,
+  mode: 'vocabulary-ja' as const,
+  active: true,
+})),
+  
 ];
  
 function rotatedOptions(items:string[],seed:number):{choices:[string,string,string,string];answer:number}{
@@ -4837,12 +5550,12 @@ function rotatedOptions(items:string[],seed:number):{choices:[string,string,stri
 for(let i=0;i<levels.length;i++){
  const level=levels[i],n=String(i+1).padStart(3,'0');
  // Grade 5 vocabulary multiple-choice seeds were removed for the finalized replacement bank.
- if(i>3){
+ if(i>4){
   const vocabIndex=(i-1)*2;
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
  }
- if (i > 3) {
+ if (i > 4) {
   const [word,meaning,accepted]=ja[i*2];
   questionBank.push({
     id:`vocab-ja-${level}-00${i+1}`,
