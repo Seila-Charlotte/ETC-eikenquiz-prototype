@@ -4080,12 +4080,12 @@ function rotatedOptions(items:string[],seed:number):{choices:[string,string,stri
 for(let i=0;i<levels.length;i++){
  const level=levels[i],n=String(i+1).padStart(3,'0');
  // Grade 5 vocabulary multiple-choice seeds were removed for the finalized replacement bank.
- if(i>1){
+ if(i>3){
   const vocabIndex=(i-1)*2;
   const [,choices,prompt,,explanation]=vocabs[vocabIndex]; questionBank.push({id:`vocab-mc-${level}-${n}`,level,mode:'vocabulary-mc',active:true,prompt,...rotatedOptions(choices,i+1),explanation});
   const [,choices2,prompt2,,explanation2]=vocabs[vocabIndex+1]; questionBank.push({id:`vocab-mc-${level}-${String(i+1).padStart(3,'0')}-b`,level,mode:'vocabulary-mc',active:true,prompt:prompt2,...rotatedOptions(choices2,i+2),explanation:explanation2});
  }
- if (i > 2) {
+ if (i > 3) {
   const [word,meaning,accepted]=ja[i*2];
   questionBank.push({
     id:`vocab-ja-${level}-00${i+1}`,
