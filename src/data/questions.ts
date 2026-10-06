@@ -2332,7 +2332,6 @@ const grade4VocabJa: Grade4VocabJaQuestion[] = [
     explanation: 'for example：例えば',
   },
 ];
-];
 export const questionBank: Question[] = [
   ...grade5VocabMc.map(q => ({
     ...q,
