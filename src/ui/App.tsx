@@ -58,81 +58,148 @@ function App(){
         }}
       >
         <span className="mode-icon">👤</span>
-        <span className="mode-card-title">1人モード</span>
-        <span className="mode-card-desc">
-          1人で挑戦
-        </span>
-        <span className="mode-card-arrow">
-          <ArrowRight size={19}/>
-        </span>
-      </button>
+        <button
+  className="mode-card lavender"
+  onClick={() => {
+    setPlayType('team');
+    setScreen('home');
+  }}
+>
+  <span className="mode-icon">👥</span>
+  <span className="mode-card-title">チームモード</span>
+  <span className="mode-card-desc">みんなで協力</span>
+  <span className="mode-card-arrow">
+    <ArrowRight size={19}/>
+  </span>
+</button>
+
+    </div>
+  </section>
+)}
+
+{screen === 'home' && (
+  <section className="hero home-card">
+    <div className="hero-left">
+      <div className="eyebrow">
+        <span>英語クイズ</span>
+        <i/>
+      </div>
+
+      <h1>
+        英語クイズに<br/>
+        <span>参加しよう</span>
+      </h1>
+
+      <p className="hero-description">
+        英検5級から1級までの問題に挑戦できます。
+      </p>
+
+      {playType === 'individual' ? (
+        <div className="name-field">
+          <label htmlFor="guest">参加者名</label>
+
+          <div className="input-wrap">
+            <span>✦</span>
+            <input
+              id="guest"
+              value={guest}
+              onChange={e => setGuest(cleanName(e.target.value))}
+              maxLength={16}
+              placeholder="名前を入力してね"
+            />
+            <small>{guest.length}/16</small>
+          </div>
+        </div>
+      ) : (
+        <div className="name-field">
+          <label htmlFor="team-name">チーム名</label>
+
+          <div className="input-wrap">
+            <span>✦</span>
+            <input
+              id="team-name"
+              value={teamName}
+              onChange={e => setTeamName(cleanName(e.target.value))}
+              maxLength={16}
+              placeholder="チーム名を入力してね"
+            />
+            <small>{teamName.length}/16</small>
+          </div>
+
+          <label>メンバー</label>
+
+          {members.map((member, i) => (
+            <div className="input-wrap" key={i}>
+              <span>👤</span>
+              <input
+                value={member}
+                onChange={e => {
+                  const updated = [...members];
+                  updated[i] = cleanName(e.target.value);
+                  setMembers(updated);
+                }}
+                maxLength={16}
+                placeholder={`メンバー${i + 1}`}
+              />
+            </div>
+          ))}
+
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => setMembers([...members, ''])}
+          >
+            ＋ メンバーを追加
+          </button>
+        </div>
+      )}
 
       <button
-        className="mode-card lavender"
-        onClick={() => {
-          setPlayType('team');
-          setScreen('home');
-        }}{playType === 'individual' ? (
-  <div className="name-field">
-    <label htmlFor="guest">参加者名</label>
-    <div className="input-wrap">
-      <span>✦</span>
-      <input
-        id="guest"
-        value={guest}
-        onChange={e => setGuest(cleanName(e.target.value))}
-        maxLength={16}
-        placeholder="名前を入力してね"
-      />
-      <small>{guest.length}/16</small>
-    </div>
-  </div>
-) : (
-  <div className="name-field">
-    <label htmlFor="team-name">チーム名</label>
-    <div className="input-wrap">
-      <span>✦</span>
-      <input
-        id="team-name"
-        value={teamName}
-        onChange={e => setTeamName(cleanName(e.target.value))}
-        maxLength={16}
-        placeholder="チーム名を入力してね"
-      />
-      <small>{teamName.length}/16</small>
-    </div>
+        className="primary-button start-button"
+        disabled={
+          playType === 'individual'
+            ? !guest.trim()
+            : !teamName.trim() ||
+              members.filter(m => m.trim()).length < 2
+        }
+        onClick={() => setScreen('category')}
+      >
+        スタート <ArrowRight size={20}/>
+      </button>
 
-    <label>メンバー</label>
-
-    {members.map((member, i) => (
-      <div className="input-wrap" key={i}>
-        <span>👤</span>
-        <input
-          value={member}
-          onChange={e => {
-            const updated = [...members];
-            updated[i] = cleanName(e.target.value);
-            setMembers(updated);
-          }}
-          maxLength={16}
-          placeholder={`メンバー${i + 1}`}
-        />
+      <div className="privacy-note">
+        ゲスト参加 · 登録なしですぐ遊べるよ
       </div>
-    ))}
+    </div>
 
-    <button
-      type="button"
-      className="secondary-button"
-      onClick={() => setMembers([...members, ''])}
-    >
-      ＋ メンバーを追加
-    </button>
-  </div>
-)}<button className="primary-button start-button" disabled={
-  playType === 'individual'
-    ? !guest.trim()
-    : !teamName.trim() || members.filter(m => m.trim()).length < 2
-} onClick={()=>setScreen('category')}>スタート <ArrowRight size={20}/></button><div className="privacy-note">ゲスト参加 · 登録なしですぐ遊べるよ</div></div><div className="hero-art"><div className="sunburst"/><div className="floating f-star">✦</div><div className="floating f-plus">✚</div><div className="floating f-dot">✦</div><div className="book-stack"><div className="book book-back"><span>ABC</span></div><div className="book book-mid"><span>WORDS</span></div><div className="book book-front"><span className="book-star">✦</span><strong>ENGLISH</strong></div><div className="pencil"/></div></div><div className="hero-bottom"><span>● 7つのレベル</span><span>● 14問チャレンジ</span><span>● 1問ずつランダム出題</span></div></section>}
+    <div className="hero-art">
+      <div className="sunburst"/>
+      <div className="floating f-star">✦</div>
+      <div className="floating f-plus">✚</div>
+      <div className="floating f-dot">✦</div>
+
+      <div className="book-stack">
+        <div className="book book-back">
+          <span>ABC</span>
+        </div>
+        <div className="book book-mid">
+          <span>WORDS</span>
+        </div>
+        <div className="book book-front">
+          <span className="book-star">✦</span>
+          <strong>ENGLISH</strong>
+        </div>
+        <div className="pencil"/>
+      </div>
+    </div>
+
+    <div className="hero-bottom">
+      <span>● 7つのレベル</span>
+      <span>● 14問チャレンジ</span>
+      <span>● 1問ずつランダム出題</span>
+    </div>
+  </section>
+)}
  {screen==='category'&&<section className="section-screen"><button className="back-link" onClick={()=>setScreen('home')}><ArrowLeft size={17}/> もどる</button><div className="section-heading"><div className="eyebrow centered">モード選択</div><h2>モードを選んでください</h2><p>好きなジャンルを選んでね。全14問にチャレンジ！</p></div><div className="mode-grid">{(['vocabulary-mc','reading','conversation'] as Mode[]).map((m,i)=>{const Icon=ICONS[i===0?0:i+1];const colors=['coral','sky','lavender'];return <button key={m} className={`mode-card ${colors[i]}`} onClick={()=>m==='vocabulary-mc'?pickMode(m):startQuiz(m)}><span className="mode-icon"><Icon size={26}/></span><span className="mode-card-title">{m==='vocabulary-mc'?'単語':MODE_LABEL[m]}</span><span className="mode-card-desc">{modeSummary(m)}</span><span className="mode-card-arrow"><ArrowRight size={19}/></span>{m==='vocabulary-mc'&&<span className="tiny-label">単語</span>}</button>})}</div><div className="category-footer"><span className="spark-dot">✦</span> どのモードも、英検5級から1級まで各2問ずつ出題されるよ！</div></section>}
  {screen==='category'&&(mode==='vocabulary-mc'||mode==='vocabulary-ja')&&<div className="submode-overlay"><div className="submode-modal"><button className="modal-close" onClick={()=>setMode(null)}><X size={20}/></button><span className="modal-icon"><Languages size={26}/></span><h3>単語</h3><p>どちらの遊び方にする？</p><div className="submode-options"><button onClick={()=>startQuiz('vocabulary-mc')}><b>選択式</b><small>4つの選択肢から答えよう</small><ArrowRight size={18}/></button><button onClick={()=>startQuiz('vocabulary-ja')}><b>日本語訳</b><small>意味を入力して答えよう</small><ArrowRight size={18}/></button></div></div></div>}
  {screen==='quiz'&&current&&<section className="quiz-screen"><div className="quiz-header"><div><span className="mode-pill">{MODE_LABEL[mode!]}</span><span className="question-count">問題 <b>{index+1}</b> / 14</span></div><div className={`timer ${remaining<=20?'urgent':''}`}><Clock3 size={17}/><b>{Math.floor(remaining/60)}:{String(remaining%60).padStart(2,'0')}</b><span>残り時間</span></div></div><div className="progress-track"><div className="progress-value" style={{width:`${((index+(feedback?1:0))/14)*100}%`}}/></div><div className="quiz-level-row"><div className="level-token"><span>LEVEL</span><b>{LEVEL_LABEL[current.level]}</b></div><div className="score-chip"><Sparkles size={16}/><span>スコア</span><b>{score.toLocaleString()} pt</b></div></div><article className="question-card" key={current.id}><div className="question-kicker"><span>QUESTION {String(index+1).padStart(2,'0')}</span><span>{mode==='vocabulary-ja'?'TYPE YOUR ANSWER':'CHOOSE THE BEST ANSWER'}</span></div>{current.mode==='reading'&&<div className="passage">{current.passage}</div>}{current.mode==='conversation'&&<div className="dialogue">{current.dialogue}</div>}<h2 className={`prompt ${current.mode==='vocabulary-ja'?'word-prompt':''}`}>{current.prompt}</h2>{current.mode==='vocabulary-ja'?<div className="japanese-answer"><label>この単語の意味を日本語で入力してください。</label><input ref={answerInput} autoFocus value={typeof answer==='string'?answer:''} onChange={e=>setAnswer(normalizeJapanese(e.target.value))} onKeyDown={e=>e.key==='Enter'&&submitEnabled()} placeholder="日本語で入力" disabled={!!feedback}/></div>:<div className="choices">{current.choices.map((c,i)=><button key={i} disabled={!!feedback} onClick={()=>setAnswer(i)} className={`choice ${answer===i?'selected':''} ${feedback&&i===current.answer?'correct-option':''} ${feedback&&answer===i&&!feedback.correct?'wrong-option':''}`}><span className="choice-letter">{String.fromCharCode(65+i)}</span><span>{c}</span>{feedback&&i===current.answer&&<Check size={18}/>}</button>)}</div>}<div className="question-bottom">{feedback?<div className={`feedback ${feedback.correct?'good':'bad'}`}>{feedback.correct?<><Check size={19}/> 正解！ <strong>+{feedback.points} pt</strong></>:<><X size={19}/> {remaining===0?'時間切れ！':'おしい！'} <span>正解をチェックしてね</span></>}</div>:<button className="primary-button answer-button" disabled={answer===null} onClick={submitEnabled}>{current.mode==='vocabulary-ja'?'答えを決定':'この答えにする'}<ArrowRight size={18}/></button>}<div className="score-total"><small>いまのスコア</small><b>{score.toLocaleString()} <i>pt</i></b></div></div></article><div className="quiz-level-track">{(['5','4','3','pre2','2','pre1','1'] as Level[]).map((l,i)=><div key={l} className={current.level===l?'active':''}><span>{i+1}</span><small>{LEVEL_LABEL[l].replace('英検','')}</small></div>)}</div></section>}
