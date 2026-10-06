@@ -2701,6 +2701,8 @@ const grade4Conversation: Grade4ConversationQuestion[] = [
     answer: 0,
     explanation: '誘いを断り、その理由としてピアノの練習があると答えています。',
   },
+  ];
+
 type Grade4ReadingQuestion = {
   id: string;
   passage: string;
