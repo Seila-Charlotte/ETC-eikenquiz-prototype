@@ -1762,6 +1762,8 @@ const grade4VocabMc: Grade4VocabMcQuestion[] = [
     answer: 0,
     explanation: 'missed：乗り遅れた。miss the bus で「バスに乗り遅れる」です。',
   },
+  ];
+
   type Grade4VocabJaQuestion = {
   id: string;
   prompt: string;
