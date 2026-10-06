@@ -2331,6 +2331,8 @@ const grade4VocabJa: Grade4VocabJaQuestion[] = [
     accepted: ['例えば', 'たとえば'],
     explanation: 'for example：例えば',
   },
+  ];
+
   type Grade4ConversationQuestion = {
   id: string;
   dialogue: string;
