@@ -6,6 +6,6 @@ const isGitHubActions = (globalThis as typeof globalThis & {
 }).process?.env?.GITHUB_ACTIONS === 'true';
 
 export default defineConfig({
-  base: isGitHubActions ? '/ETC-eikenquiz-prototype/' : '/',
+  base: isGitHubActions ? '/ETC_eiken-challenge-tower/' : '/',
   plugins: [react()],
 });
