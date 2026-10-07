@@ -88,12 +88,14 @@ export function responseFor(
   const credit = answerCredit(q, answer);
   const correct = credit === 1;
 
+  const limitMs = q.mode === 'reading' ? 300_000 : 120_000;
+
   return {
     questionId: q.id,
     answer,
     correct,
     elapsedMs,
-    points: scoreAnswer(q.level, credit, elapsedMs),
+    points: scoreAnswer(q.level, credit, elapsedMs, limitMs),
   };
 }
 export function rankResults<T extends {score:number;correct:number;avgMs:number}>(results:T[]):T[] {
