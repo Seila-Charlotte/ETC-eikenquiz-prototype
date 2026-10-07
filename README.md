@@ -1,4 +1,4 @@
-# ことばクエスト
+# English Challenge Tower
 
 Festival English quiz built with React, TypeScript, and Vite. The 54 remaining original seed questions are in `src/data/questions.ts`; the Grade 5 vocabulary multiple-choice pool is reserved for the finalized replacement questions. Add or disable questions there without changing game logic.
 
