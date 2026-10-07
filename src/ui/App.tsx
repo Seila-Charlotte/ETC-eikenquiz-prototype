@@ -39,7 +39,7 @@ function App(){
  async function showBoard(m=mode||'vocabulary-mc'){setBoardMode(m);setScreen('leaderboard');setLoadingBoard(true);try{setBoard(await getToday(m));}catch(e){console.error(e);setBoard([]);setSaveError('ランキングを読み込めませんでした。');}finally{setLoadingBoard(false);}}
  const modeSummary=(m:Mode)=>m==='vocabulary-mc'?'英検でよく出る単語・熟語にチャレンジ！':m==='reading'?'英文を読んで、内容について答えよう。':'会話の流れに合う返答を選ぼう。';
   function submitEnabled(){if(answer===null)return;submit(answer);}
- return <div className="app-shell"><header className="topbar"><button className="brand" onClick={()=>setScreen('home')}><span className="brand-icon"><Sparkles size={20}/></span><span>Eiken<span className="brand-pop">Challenge Tower</span></span></button><div className="top-right"><button className="mini-link" onClick={()=>void showBoard(boardMode)}><Trophy size={17}/> ランキング</button></div></header>
+ return <div className="app-shell"><header className="topbar"><button className="brand" onClick={()=>setScreen('home')}><span className="brand-icon"><Sparkles size={20}/></span><span>Eiken <span className="brand-pop">Challenge Tower</span></span></button><div className="top-right"><button className="mini-link" onClick={()=>void showBoard(boardMode)}><Trophy size={17}/> ランキング</button></div></header>
  <main className="main-content">
    {screen === 'play-type' && (
   <section className="section-screen">
